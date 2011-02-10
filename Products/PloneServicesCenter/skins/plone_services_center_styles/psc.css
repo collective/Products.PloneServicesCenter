@@ -1,0 +1,170 @@
+#plonegossip .listingBar {
+  clear: none;
+}
+
+.listingBar {
+  border: 1px solid #d3cebc;
+  margin: 1em 0em;
+  padding: 0em 1em;
+  background-color: #f4f1e9;
+  text-align: center;
+  text-transform: lowercase;
+  vertical-align: top;
+  font-size: 94%;
+  clear: both;
+}
+
+.listingBar a {
+  text-decoration: none !important;
+}
+
+.listingBar span.next, .listingNext {
+  text-align: right;
+  float: right;
+  margin-left: 1em;
+}
+
+.listingBar span.previous, .listingPrevious {
+  text-align: left;
+  float: left;
+  margin-left: 1em;
+}
+
+.listing-provider,
+.listing-site { 
+  clear: both;
+  padding: 0.1em 1em;
+  margin: 1em 0;
+}
+
+.level1 {
+  background-color: #f4f1e9;
+  border: 1px dashed #d3cebc;
+}
+
+.level2 {
+  background-color: #f9f8f3;
+  border: 1px dashed #f4f1e9;
+}
+
+.level1 .site-description {
+
+}
+
+.isting-provider .discreet,
+.listing-site .discreet { 
+  font-size: 90%;
+}
+
+.level1 h2 {
+  border-left: 2px solid #ec001a;
+  padding-left: 7px;
+}
+
+.listing-provider .first-infos,
+.listing-site .first-infos { 
+  clear: both;
+  padding: 0.3em;
+  background-color: white;
+  border: 1px solid #d3cebc;
+  margin: 0.5em;
+}
+
+.listing-provider .second-infos,
+.listing-site .second-infos { 
+  clear: both;
+  padding: 0.3em;
+  margin: 0.5em;
+}
+
+.first-infos span,
+.second-infos span,
+.third-infos span { 
+  margin: 0 0.5em;
+}
+
+.listing-provider dl.third-infos,
+.listing-site dl.third-infos { 
+  float: left;
+  width: 8em;
+}
+
+.listing-provider dl.third-infos dd,
+.listing-site dl.third-infos dd { 
+  margin: 0 1em 0.5em 0;
+}
+
+.listing-provider dl.third-infos dt,
+.listing-site dl.third-infos dt { 
+  margin: 0 1em 0 0;
+}
+
+.listing-provider-image-link img,
+.listing-site-image-link img { 
+  float: left;
+  border: 1px solid #ccc;
+  margin: 0 1em 1em 0;
+}
+
+
+.provider-body {
+ padding: 1em;
+}
+
+.sponsor {
+
+}
+
+.premium-sponsor {
+ padding: 0;
+ border: 1px solid #a19d85;
+}
+
+.premium-sponsor .listing-title {
+ background-color: #a19d85;
+ padding: 1em 0 0;
+ margin: 0 0 0.25em 0;
+}
+
+.listing-title-table {
+ width: 100%;
+}
+
+.listing-title a {
+ font-family: arial, helvetica, sans-serif;
+ font-weight: bold;
+ text-decoration: none;
+ line-height: 1.25em;
+ font-size: 1.4em
+}
+
+.premium-sponsor .listing-title a {
+ color: white !important;
+ font-size: 1.5em;
+}
+
+
+.sponsor .listing-title img {
+ float: right;
+}
+
+.sponsor .listing-title p {
+ margin: 0 !important;
+}
+
+.listing-title td {
+ margin: 0;
+ padding: 0 0 0.25em 0;
+ vertical-align: bottom;
+}
+
+.listing-title tr {
+ margin: 0;
+ padding: 0;
+ vertical-align: bottom;
+}
+
+.provider-meta, .provider-sponsor {
+float: right;
+margin: 0 0 1em 0;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title tal:content="options/content/title">Sites</title>
+	<link rel="stylesheet" href="genericlisting.css" type="text/css">
+</head>
+<body>
+	<h2>Plone Sites</h2>
+	<p>The following listing shows Plone-based websites around the world. The featured sites
+		focus on high-profile sites that highlight an interesting use of the Plone CMS. If the
+		site was deployed by a Plone service provider, they are listed as well.
+	</p>
+	<h2>Featured Sites</h2>
+	<div class="highrating">
+		<div class="highratingentry" tal:repeat="site options/content/sites">
+			<div class="highratingtitle" tal:content="site/title">Credit Municipal de Paris</div>
+			<table border="0" cellpadding="6" cellspacing="0">
+				<td valign="middle"><img src="LiveSearch.png" height="100" width="170" alt="Site screenshot"></td>
+				<td valign="top" tal:content="site/description|nothing">One of France's oldest and most respectable banks and auction houses.</td>
+				<td width="25%" valign="top">
+					<table border="1" cellpadding="3" cellspacing="0" style="font-size: smaller">
+						<tr>
+							<td>Country</td>
+							<td tal:content="site/country|nothing">France</td>
+						</tr>
+						<tr>
+							<td>Industry</td>
+							<td tal:content="site/industry|nothing">Banking</td>
+						</tr>
+						<tr>
+							<td>Contact</td>
+							<td tal:content="site/contact|nothing">Some CMF Person</td>
+						</tr>
+						<tr>
+							<td>Provider</td>
+							<td tal:content="site/provider|nothing">Pilot Systems</td>
+						</tr>
+					</table>
+				</td>
+			</table>
+		</div>
+
+	</div>
+	<h2>Sites of Interest</h2>
+	<div class="mediumrating" tal:repeat="site options/content/sites">
+		<div>
+			<h3 tal:content="site/title">Street Theory</h3>
+			<p tal:content="site/description|nothing">Associated with the Truth campaign</p>
+			<div class="mediumratinginfo">
+				<strong>Country:</strong><span tal:content="site/country|nothing">US</span>
+				<strong>Industry:</strong><span tal:content="site/industry|nothing">NGO</span>
+<!-- commented out for now, we shouldn't show bare email addresses
+				<strong>Contact:</strong><span tal:content="site/contact|nothing">Another Person</span>
+-->
+				<strong>Provider:</strong><span tal:content="site/provider|nothing">Abstract Edge</span>
+				
+			</div>
+		</div>
+	</div>
+	<h2>Other Sites</h2>
+	<div class="otherrating">
+		<table border="1" cellpadding="6" cellspacing="0" align="center" width="90%">
+			<tr>
+				<th>Site Name</th>
+				<th>Description</th>
+				<th>Country</th>
+				<th>Industry</th>
+			</tr>
+			<tr tal:repeat="site options/content/sites">
+				<td tal:content="site/title">International Society of Radiology</td>
+				<td tal:content="site/description|nothing">No description for radiology</td>
+				<td tal:content="site/country|nothing">US</td>
+				<td tal:content="site/industry|nothing">Medicine</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

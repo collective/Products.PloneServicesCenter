@@ -1,0 +1,138 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="ploneservicescenter">
+<body>
+<div metal:fill-slot="main"
+     tal:define="countries request/countries | nothing; 
+                 countries python: test(countries == [''] or not countries, [], countries);
+                 industries request/industries | nothing;
+                 industries python: test(industries == [''] or not industries, [], industries);
+                 providers python: here.getProviders(getCountry=countries, getIndustry=industries);
+                 featured_providers python: providers.get(1, ());
+                 providers_of_interest python: providers.get(2, ());
+                 other_providers python: providers.get(3, ())">
+
+<h2 i18n:translate="label_providerlist_ploneprovider">Plone providers</h2>
+
+<form tal:attributes="action string:${here_url}/${template_id}">
+<div>
+  <div style="float: right">
+    <tal:filter-form metal:use-macro="here/psc_macros/macros/filter-form"/>
+  </div>
+  <p i18n:translate="label_providerlist_ploneprovider_descr">
+    The following listing shows Plone providers around the world. The
+    featured providers are providers which either sponsorised Plone
+    Foundation (by giving money, providing services or, more
+    generally, helped the Plone Foundation in any way) or wrote very
+    good case sudies.
+    <tal:fixme tal:replace="nothing">
+      This text may be changed. Or at least rewritten by someone who
+      really speaks English... ;)
+    </tal:fixme>
+  </p>
+  <p class="discreet" i18n:translate="label_providerlist_filterresults">
+    You can filter out the results by selecting one or more
+    countries and/or one or more industries with the form on the
+    right.
+  </p>
+</div>
+</form>
+<div class="visualClear"></div>
+
+<h2 i18n:translate="label_providerlist_featured_provider">Featured Providers</h2>
+<tal:if tal:condition="not: featured_providers">
+  <tal:nothing-found metal:use-macro="here/psc_macros/macros/nothing-found"/>
+</tal:if>
+<div tal:condition="featured_providers"
+     tal:repeat="brain python: featured_providers"
+     class="highratingentry">
+  <div class="highratingtitle"><a tal:attributes="href brain/getURL" tal:content="brain/Title"/></div>
+  <table border="0" cellpadding="6" cellspacing="0"  style="width: 100%"
+         tal:define="provider brain/getObject">
+    <tr>
+      <td valign="middle"
+          tal:define="thumbnail provider/logo_normal | nothing">
+        <a tal:condition="nocall: thumbnail"
+           tal:attributes="href brain/getURL"
+           tal:replace="structure python: thumbnail"></a>
+      </td>
+      <td valign="top" tal:content="brain/Description"></td>
+      <td width="25%" valign="top">
+        <table border="1" cellpadding="3" cellspacing="0" style="font-size: smaller">
+          <tr>
+            <td i18n:translate="label_providerlist_country_cat">Country</td>
+            <td tal:content="python: ', '.join(brain.getCountry)"></td>
+          </tr>
+          <tr>
+            <td i18n:translate="label_providerlist_industry_cat">Industry</td>
+            <td tal:content="python: ', '.join(brain.getIndustry)"></td>
+          </tr>
+          <tr>
+            <td i18n:translate="label_providerlist_contact">Contact</td>
+            <td tal:define="contact_email brain/getContactEmail;
+                            contact_name brain/getContactName">
+              <tal:display-contact metal:use-macro="here/psc_macros/macros/display-contact"/>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<h2 i18n:translate="label_providerlist_providers_interest">Providers of Interest</h2>
+<tal:if tal:condition="not: providers_of_interest">
+  <tal:nothing-found metal:use-macro="here/psc_macros/macros/nothing-found"/>
+</tal:if>
+<div tal:condition="providers_of_interest"
+     tal:repeat="brain python: providers_of_interest"
+     class="mediumratingentry">
+  <a tal:attributes="href brain/getURL"><h3 tal:content="brain/Title"></h3></a>
+  <p tal:content="brain/Description"></p>
+  <div class="mediumratinginfo"
+       tal:define="provider brain/getObject">
+    <span>
+      <strong i18n:translate="label_providerlist_country">Country:</strong>
+      <span tal:replace="python: ', '.join(brain.getCountry)"/>
+    </span>
+    <span>
+      <strong i18n:translate="label_providerlist_industry">Industry:</strong>
+      <span tal:replace="python: ', '.join(brain.getIndustry)"/>
+    </span>
+<!-- commented out for now, we shouldn't show bare email addresses
+    <span tal:define="contact_email brain/getContactEmail;
+                      contact_name brain/getContactName">
+      <strong>Contact:</strong>
+      <tal:display-contact metal:use-macro="here/psc_macros/macros/display-contact"/>
+    </span>
+-->
+  </div>
+</div>
+
+
+<h2 i18n:translate="label_providerlist_other">Other providers</h2>
+<tal:if tal:condition="not: other_providers">
+  <tal:nothing-found metal:use-macro="here/psc_macros/macros/nothing-found"/>
+</tal:if>
+<table tal:condition="other_providers"
+       class="listing">
+  <tr>
+    <th i18n:translate="label_providerlist_provider">Provider</th>
+    <th i18n:translate="label_providerlist_descr">Description</th>
+    <th i18n:translate="label_providerlist_country_cat">Country</th>
+    <th i18n:translate="label_providerlist_industry_cat">Industry</th>
+  </tr>
+  <tr tal:repeat="brain other_providers"
+      tal:attributes="class python: test(repeat['brain'].odd(), 'odd', 'even')">
+    <td><a tal:attributes="href brain/getURL" tal:content="brain/Title"/></td>
+    <td tal:content="brain/Description"></td>
+    <td tal:content="python: ', '.join(brain.getCountry)"></td>
+    <td tal:content="python: ', '.join(brain.getIndustry)"></td>
+  </tr>
+</table>
+
+</div>
+</body>
+</html>

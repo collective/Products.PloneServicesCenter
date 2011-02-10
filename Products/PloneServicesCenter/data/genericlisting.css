@@ -1,0 +1,53 @@
+body  { 
+    font-family:helvetica;
+    font-size:0.9em;
+    margin:3em 
+} 
+
+.highrating  { 
+    margin-left:2em;
+    margin-right:2em;
+    border:solid gray 1px;
+    padding-left:1em;
+    padding-right:1em;
+    background-color:lightgray 
+} 
+
+.highratingentry  { 
+    margin-top:2em;
+    margin-bottom:3em 
+} 
+
+.highratingtitle  { 
+    width:100%;
+    border-bottom:solid gray 1px 
+} 
+
+td  { 
+    font-size:smaller 
+} 
+
+.mediumrating  { 
+    margin-left:2.5em
+} 
+
+.mediumratinginfo  
+{ 
+    margin-left:2em;
+    margin-right:2em;
+    font-size:smaller
+} 
+
+.mediumratinginfo 
+span  { 
+    margin-right:2em
+} 
+
+.mediumratinginfo 
+strong  { 
+    margin-right:0.4em
+} 
+
+h2  { 
+    margin-top:1em
+}
