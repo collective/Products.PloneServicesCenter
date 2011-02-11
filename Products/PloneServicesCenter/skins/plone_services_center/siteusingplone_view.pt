@@ -21,9 +21,9 @@
     <a href=""
        style="border: 1px solid #ccc; display: block;"
        target="_blank"
-       tal:attributes="href here/getUrl"
-       tal:condition="here/getScreenshot"
-       ><img tal:replace="structure here/screenshot_view" i18n:name="label_siteuseplone_logo" /></a>
+       tal:attributes="href here/getUrl;"
+       ><img src="http://images.shrinktheweb.com/xino.php?stwembed=1&amp;stwxmax=200&amp;stwymax=150&amp;stwaccesskeyid=21806ba9db284d3&amp;stwurl=http://plone.org"
+     tal:attributes="src string:http://images.shrinktheweb.com/xino.php?stwembed=1&amp;stwxmax=200&amp;stwymax=150&amp;stwaccesskeyid=21806ba9db284d3&amp;stwurl=${here/getUrl};" /></a>
        <br />
     <a href=""
        class="discreet link-plain"

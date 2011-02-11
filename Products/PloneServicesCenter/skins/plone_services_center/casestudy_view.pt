@@ -74,7 +74,9 @@
     Description
 </p>
 
-<img tal:condition="here/getScreenshot" tal:replace="structure here/screenshot_view" />
+
+<img src="http://images.shrinktheweb.com/xino.php?stwembed=1&amp;stwxmax=200&amp;stwymax=150&amp;stwaccesskeyid=21806ba9db284d3&amp;stwurl=http://plone.org"
+     tal:attributes="src string:http://images.shrinktheweb.com/xino.php?stwembed=1&amp;stwxmax=200&amp;stwymax=150&amp;stwaccesskeyid=21806ba9db284d3&amp;stwurl=${here/getUrl};" />
 
 <p tal:replace="structure here/getBody">
 Body text

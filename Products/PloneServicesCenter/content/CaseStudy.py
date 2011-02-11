@@ -20,25 +20,6 @@ schema = servicesSchema + Schema ((
 	searchable=1,
         ),
 
-    ImageField('screenshot',
-        original_size=(800,600),
-        sizes={
-        'preview': (400, 400),
-        'view'   : (250, 250),
-        'mini'   : (200, 200),
-        'thumb'  : (128, 128),
-        'tile'   : (64, 64),
-        'icon'   : (32, 32),
-        'listing': (16, 16),
-        },
-        widget=ImageWidget(
-            label="Screenshot",
-            label_msgid="label_psc_screenshot",
-            description="Add a screenshot for the case study. Max 150x75 pixels (will be resized if bigger).",
-            description_msgid="help_casestudy_screenshot",
-            i18n_domain='ploneservicescenter',
-        ),
-        ),
     ImageField('logo',
         max_size=(150, 75),
         widget=ImageWidget(

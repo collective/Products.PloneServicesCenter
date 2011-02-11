@@ -5,26 +5,6 @@ from Products.PloneServicesCenter.interfaces import ISiteUsingPlone
 
 schema = servicesSchema + Schema ((
 
-    ImageField('screenshot',
-               widget=ImageWidget(
-                   label="Screenshot",
-                   label_msgid="label_psc_screenshot",
-                   description="Add a screenshot for the Site that Use Plone. Max 150x75 pixels (will be resized if bigger).",
-                   description_msgid="help_siteuseplone_screenshot",
-                   i18n_domain='ploneservicescenter',
-               ),
-               sizes= {'large'   : (768, 768),
-                       'preview' : (400, 400),
-                       'view'    : (250, 250),
-                       'mini'    : (200, 200),
-                       'thumb'   : (128, 128),
-                       'tile'    :  (64, 64),
-                       'icon'    :  (32, 32),
-                       'listing' :  (16, 16),
-                      },
-               required=1,
-        ),
-
     ReferenceField('provider',
         widget=ReferenceWidget(
             checkbox_bound=0,

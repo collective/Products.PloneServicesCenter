@@ -67,8 +67,8 @@
 
             <a tal:attributes="href brain/getURL"
                class="listing-site-image-link">
-              <img alt=""
-                   tal:attributes="src string:${brain/getURL}/screenshot_thumb;
+              <img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwxmax=200&stwymax=150&stwaccesskeyid=21806ba9db284d3&stwurl=http://plone.org"
+                   tal:attributes="src string:http://images.shrinktheweb.com/xino.php?stwembed=1&stwxmax=200&stwymax=150&stwaccesskeyid=21806ba9db284d3&stwurl=${brain/getUrl};
                                    title brain/Title;
                                    alt brain/Title" />
             </a>
@@ -117,8 +117,8 @@
             
             <a tal:attributes="href brain/getURL"
                class="listing-site-image-link">
-              <img alt=""
-                   tal:attributes="src string:${brain/getURL}/screenshot_thumb;
+              <img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwxmax=200&stwymax=150&stwaccesskeyid=21806ba9db284d3&stwurl=http://plone.org"
+                   tal:attributes="src string:http://images.shrinktheweb.com/xino.php?stwembed=1&stwxmax=200&stwymax=150&stwaccesskeyid=21806ba9db284d3&stwurl=${brain/getUrl};
                                    title brain/Title;
                                    alt brain/Title" />
             </a>

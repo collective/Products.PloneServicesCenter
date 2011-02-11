@@ -13,6 +13,9 @@ optionflags = (doctest.NORMALIZE_WHITESPACE |
 def test_suite():
     install_suite = ZopeTestCase.FunctionalDocFileSuite(
         'providers.txt',
+        'case-studies.txt',
+        'buzz.txt',
+        'sites.txt',
         optionflags=optionflags)
     install_suite.layer = testing.SERVICES_FUNCTIONAL_TESTING
     return unittest.TestSuite([install_suite])
