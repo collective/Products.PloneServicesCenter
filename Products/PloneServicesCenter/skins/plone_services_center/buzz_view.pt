@@ -6,7 +6,7 @@
 <body>
 <metal:main metal:define-macro="body">
 
-<tal:if tal:condition="python: wf_state != 'published'">
+<tal:if tal:condition="python: context.portal_workflow.getInfoFor(context, 'review_state') != 'published'">
   <div class="warning portalMessage">
     <a href="content-guidelines"
        tal:attributes="href string:${portal_url}/content-guidelines"
