@@ -3,11 +3,11 @@
 
  <object name="BuzzFolder"
          meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Media Coverage"
+ <object name="Buzz"
          meta_type="Factory-based Type Information with dynamic views"/>
  <object name="CaseStudyFolder"
          meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Case Study"
+ <object name="CaseStudy"
          meta_type="Factory-based Type Information with dynamic views"/>
  <object name="ProviderFolder"
          meta_type="Factory-based Type Information with dynamic views"/>
@@ -17,9 +17,9 @@
          meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Services"
          meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Site Using Plone Folder"
+ <object name="SiteUsingPloneFolder"
          meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Site Using Plone"
+ <object name="SiteUsingPlone"
          meta_type="Factory-based Type Information with dynamic views"/>
 
 </object>
