@@ -18,4 +18,4 @@ class CaseStudyFolder(BaseServicesFolder):
         },
     )
 
-registerType(CaseStudyFolder)
+registerType(CaseStudyFolder, 'PloneServicesCenter')

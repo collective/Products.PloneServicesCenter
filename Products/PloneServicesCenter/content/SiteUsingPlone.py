@@ -55,5 +55,5 @@ class SiteUsingPlone(BaseServicesContent):
     typeDescription= "Site using Plone. Not a full case study, but just a description and URL."
     typeDescMsgId  = "help_siteuseplone_archetype"
 
-registerType(SiteUsingPlone)
+registerType(SiteUsingPlone, 'PloneServicesCenter')
 

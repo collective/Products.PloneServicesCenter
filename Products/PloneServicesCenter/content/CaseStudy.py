@@ -76,5 +76,5 @@ class CaseStudy(BaseServicesContent):
     typeDescription= "Shows off a Plone site or project built for a customer."
     typeDescMsgId  = "help_casestudy_archetype"
 
-registerType(CaseStudy)
+registerType(CaseStudy, 'PloneServicesCenter')
 

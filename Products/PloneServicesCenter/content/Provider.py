@@ -233,4 +233,4 @@ class Provider(BaseServicesContent):
             classes.append("premium-sponsor")
         return " ".join(classes)
 
-registerType(Provider)
+registerType(Provider, 'PloneServicesCenter')

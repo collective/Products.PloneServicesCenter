@@ -19,4 +19,4 @@ class BuzzFolder(BaseServicesFolder):
     )
     
 
-registerType(BuzzFolder)
+registerType(BuzzFolder, 'PloneServicesCenter')

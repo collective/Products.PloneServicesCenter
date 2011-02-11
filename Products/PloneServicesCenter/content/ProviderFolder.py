@@ -17,4 +17,4 @@ class ProviderFolder(BaseServicesFolder):
         },
 	)
 
-registerType(ProviderFolder)
+registerType(ProviderFolder, 'PloneServicesCenter')

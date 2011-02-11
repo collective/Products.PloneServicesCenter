@@ -18,4 +18,4 @@ class SiteUsingPloneFolder(BaseServicesFolder):
     )
     
 
-registerType(SiteUsingPloneFolder)
+registerType(SiteUsingPloneFolder, 'PloneServicesCenter')

@@ -66,5 +66,5 @@ class Buzz(BaseServicesContent):
     typeDescription= "A link to media coverage of Plone."
     typeDescMsgId  = "help_buzz_archetype"
 
-registerType(Buzz)
+registerType(Buzz, 'PloneServicesCenter')
 
