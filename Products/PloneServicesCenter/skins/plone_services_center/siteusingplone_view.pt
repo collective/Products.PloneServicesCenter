@@ -49,7 +49,7 @@
   <tal:country condition="here/getCountry">
     <dt i18n:translate="label_psc_country_cat">Country</dt>
     <dd tal:define="country here/getCountry">
-      <a tal:content="python:here.portal_countryutils.getCountryByIsoCode(country)"
+      <a tal:content="python:here.Vocabulary('country')[0].getValue(country)"
          tal:attributes="href string:${listing_url}?countries:list=${country}" />
     </dd>
   </tal:country>      

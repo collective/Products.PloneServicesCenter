@@ -3,6 +3,9 @@ from Products.Archetypes.public import *
 from Products.CMFCore.utils import getToolByName
 from sets import Set
 
+from Products.PloneServicesCenter.content import country
+
+
 servicesFolderSchema = BaseFolderSchema + Schema ((
 
     ))
@@ -69,9 +72,8 @@ class BaseServicesFolder(BaseFolder):
         relates with; return a sorted list of (code, name) pairs.
         """
         countries = self.getUniqueCountries()
-        country_tool =  getToolByName(self, "portal_countryutils")
-        cdict = country_tool.getCountryIsoDict()
-        countries = [ (code, cdict.get(code, code)) for code in countries ]
+        countries = [(code, country.vocab.getValue(code, code))
+                     for code in countries]
         countries.sort(lambda t1, t2: cmp(t1[1], t2[1]))
         return countries
 
@@ -171,8 +173,8 @@ class BaseServicesFolder(BaseFolder):
         This method returns a list of sorted countries, with id and names
         """
         codes = self.getCountriesInThisSection()
-        country_tool = getToolByName(self, "portal_countryutils")
-        countries_dict = country_tool.getCountryIsoDict()
-        countries = [ {"id": code, "name": countries_dict.get(code, code) } for code in codes ]
-        countries.sort(lambda a,b: cmp(a["name"], b["name"]))
+        countries = [{"id": code,
+                      "name": country.vocab.getValue(code, code) }
+                     for code in codes]
+        countries.sort(lambda a, b: cmp(a["name"], b["name"]))
         return countries

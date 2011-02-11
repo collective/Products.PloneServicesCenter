@@ -7,7 +7,7 @@ setup(
     name='Products.PloneServicesCenter',
     install_requires=[
         'Plone',
-        'Products.ATCountryWidget',
+        'Products.ArchAddOn',
         ],
     test_require=test_require,
     extras_require={'test': test_require},

@@ -4,12 +4,9 @@ from Products.Archetypes.public import *
 from Products.ATContentTypes.content.base import *
 from Products.ArchAddOn.Fields import *
 from Products.ArchAddOn.Widgets import *
-from Products.CMFCore.utils import getToolByName
-from Products.ATCountryWidget.Widget import CountryWidget
 
 from Products.PloneServicesCenter.validators import IndustriesValidator
-
-from Products.PythonScripts.standard import newline_to_br
+from Products.PloneServicesCenter.content import country
 
 servicesSchema = BaseSchema + Schema ((
 
@@ -31,15 +28,15 @@ servicesSchema = BaseSchema + Schema ((
         ),
     StringField('country',
         validators=('isValidISOCountry',),
-        widget=CountryWidget(
+        vocabulary=country.vocab,
+        countries=country.countries,
+        widget=SelectionWidget(
             label='Country',
             label_msgid="label_psc_country_cat",
             description='Select a country',
             description_msgid="help_services_country",
-            provideNullValue=1,   # this is default
-            nullValueTitle='-',   # this is default
-            omitCountries=None,   # this is default
-            i18n_domain='ploneservicescenter',),
+            i18n_domain='ploneservicescenter',
+            macro_edit="country_widget"),
         required=0,
         index=('KeywordIndex:schema',),
         ),
