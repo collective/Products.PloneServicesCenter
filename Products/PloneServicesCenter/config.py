@@ -9,7 +9,6 @@ GLOBALS = globals()
 
 PACKAGE_HOME = package_home(GLOBALS)
 # yeah, a list - since we modify this globally from the testcase...
-HOME_PATH_ELEMENTS = [PACKAGE_HOME, 'Extensions','data']
 
 
 CREATE_INITIAL_CONTENT = False
