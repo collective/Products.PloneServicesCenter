@@ -1,5 +1,6 @@
 from AccessControl import getSecurityManager
 
+from Products.Archetypes import atapi
 from Products.Archetypes.public import *
 from Products.ATContentTypes.content.base import *
 from Products.ArchAddOn.Fields import *
@@ -73,7 +74,7 @@ servicesSchema = BaseSchema + Schema ((
             i18n_domain='ploneservicescenter',),
         required=1,
         default=2,
-        vocabulary='_getPossibleRatings',
+        vocabulary=atapi.IntDisplayList([(i, i) for i in range(1, 4)]),
         write_permission='Manage portal',
         index=('FieldIndex:schema',),        
         ),
