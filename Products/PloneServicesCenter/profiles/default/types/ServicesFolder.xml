@@ -15,13 +15,8 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types"></property>
  <property name="allow_discussion">False</property>
- <property name="default_view">base_view</property>
- <property name="view_methods">
-  <element value="base_view"/>
- </property>
- <property name="default_view_fallback">False</property>
- <alias from="(Default)" to="(dynamic view)"/>
- <alias from="view" to="(selected layout)"/>
+ <alias from="(Default)" to="base_view"/>
+ <alias from="view" to="base_view"/>
  <alias from="edit" to="base_edit"/>
  <alias from="properties" to="base_metadata"/>
  <alias from="sharing" to="folder_localrole_form"/>

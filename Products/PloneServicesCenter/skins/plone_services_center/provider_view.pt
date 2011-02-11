@@ -142,7 +142,7 @@
 </tal:sites>
 
 <tal:nosites condition="not: sites">
-<div tal:condition="not: portal/portal_membership/isAnonymousUser">
+<div tal:condition="not: context/portal_membership/isAnonymousUser">
 <h2 i18n:translate="label_provider_deployed_sites">Deployed Sites</h2>
 <p class="discreet" i18n:translate="label_provider_deployedsites_msg">
   No sites found, add yours in the <a href="../sites">Sites section</a>.

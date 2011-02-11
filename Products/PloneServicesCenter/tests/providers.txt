@@ -21,8 +21,9 @@ Open a browser and log in as a user who can add content.
     >>> browser.getControl('Password').value = 'secret'
     >>> browser.getControl('Log in').click()
 
-Go to the providers folder and add a provider.
+Go to the providers folder and add a provider inside a provider folder.
 
+    >>> browser.open(portal.support.providers.absolute_url())
     >>> browser.getLink(url='createObject?type_name=Provider').click()
     >>> browser.getControl('Title').value = 'Foo Provider Title'
     >>> browser.getControl('Description').value = 'Foo Provider Description'
@@ -32,4 +33,10 @@ Go to the providers folder and add a provider.
     <...
                 <dd>Changes saved.</dd>...
     >>> browser.url
-    'http://nohost/plone/support/providers/TODO'
+    'http://nohost/plone/support/providers/foo-provider-title'
+
+The properties aren't purged.
+
+    >>> navtree_properties = portal.portal_properties.navtree_properties
+    >>> 'Plone Site' in navtree_properties.getProperty('metaTypesNotToList')
+    True
