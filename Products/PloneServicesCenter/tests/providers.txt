@@ -1,0 +1,35 @@
+.. -*-doctest-*-
+
+=========
+Providers
+=========
+
+Start with a portal.
+
+    >>> from Products.PloneServicesCenter import testing
+    >>> portal = testing.SERVICES_FUNCTIONAL_TESTING['portal']
+
+Open a browser and log in as a user who can add content.
+
+    >>> from Products.Five import testbrowser
+    >>> browser = testbrowser.Browser()
+    >>> browser.handleErrors = False
+    >>> browser.open(portal.absolute_url())
+
+    >>> browser.getLink('Log in').click()
+    >>> browser.getControl('Login Name').value = 'admin'
+    >>> browser.getControl('Password').value = 'secret'
+    >>> browser.getControl('Log in').click()
+
+Go to the providers folder and add a provider.
+
+    >>> browser.getLink(url='createObject?type_name=Provider').click()
+    >>> browser.getControl('Title').value = 'Foo Provider Title'
+    >>> browser.getControl('Description').value = 'Foo Provider Description'
+    >>> browser.getControl('URL').value = 'http://foo.example.com'
+    >>> browser.getControl('Save').click()
+    >>> print browser.contents
+    <...
+                <dd>Changes saved.</dd>...
+    >>> browser.url
+    'http://nohost/plone/support/providers/TODO'
