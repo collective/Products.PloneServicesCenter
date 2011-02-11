@@ -4,6 +4,9 @@
  <object name="plonenet_workflow" meta_type="Workflow"/>
  <object name="supporter_workflow" meta_type="Workflow"/>
  <bindings>
+  <default>
+   <bound-workflow workflow_id="simple_publication_workflow"/>
+  </default>
   <type type_id="BuzzFolder">
    <bound-workflow workflow_id="plonenet_folder_workflow"/>
   </type>
