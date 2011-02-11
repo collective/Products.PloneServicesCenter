@@ -131,7 +131,7 @@ class TestWorkflow(PloneServicesCenterTestCase.PloneServicesCenterTestCase):
 
     def testMemberAddsSite(self):
         
-        self.login('member')
+        self.login()
         self.plone_sites.invokeFactory('SiteUsingPlone', 'site1')
         self.failUnless('site1' in self.plone_sites.objectIds())
 
