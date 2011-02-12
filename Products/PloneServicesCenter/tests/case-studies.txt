@@ -36,6 +36,16 @@ Go to the case studies folder and add a case study inside.
                 <dd>Changes saved.</dd>...
     >>> browser.url
     'http://nohost/plone/support/case-studies/foo-case-study-title'
+    >>> portal.support['case-studies'].contentValues()
+    [<CaseStudy at /plone/support/case-studies/foo-case-study-title>]
+    >>> case = portal.support['case-studies']['foo-case-study-title']
+
+Tolerate uppercase country codes.
+
+    >>> z2.login(app.acl_users, 'admin')
+    >>> case.update(country=case.getCountry().upper())
+    >>> import transaction
+    >>> transaction.commit()
 
 After the case study is now visible on the listing.
 

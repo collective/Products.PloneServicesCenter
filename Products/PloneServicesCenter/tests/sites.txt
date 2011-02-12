@@ -37,6 +37,16 @@ Go to the sites folder and add a site using plone inside.
                 <dd>Changes saved.</dd>...
     >>> browser.url
     'http://nohost/plone/support/sites/foo-site-using-plone-title'
+    >>> portal.support.sites.contentValues()
+    [<SiteUsingPlone at /plone/support/sites/foo-site-using-plone-title>]
+    >>> site = portal.support.sites['foo-site-using-plone-title']
+
+Tolerate uppercase country codes.
+
+    >>> z2.login(app.acl_users, 'admin')
+    >>> site.update(country=site.getCountry().upper())
+    >>> import transaction
+    >>> transaction.commit()
 
 After the site is now visible on the listing.
 

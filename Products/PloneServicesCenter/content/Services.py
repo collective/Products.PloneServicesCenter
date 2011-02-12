@@ -160,3 +160,6 @@ class BaseServicesContent(ATCTContent):
         providers.sort(lambda a,b: cmp(a[1].lower(), b[1].lower()))
         return DisplayList(providers)
 
+    def getCountry(self, **kw):
+        # lowercase to tolerate uppercase values from plone.net
+        return self.getField('country').get(self, **kw).lower()

@@ -36,6 +36,16 @@ Go to the buzz folder and add a buz object inside.
                 <dd>Changes saved.</dd>...
     >>> browser.url
     'http://nohost/plone/news/buzz/foo-buzz-title'
+    >>> portal.news.buzz.contentValues()
+    [<Buzz at /plone/news/buzz/foo-buzz-title>]
+    >>> buzz = portal.news.buzz['foo-buzz-title']
+
+Tolerate uppercase country codes.
+
+    >>> z2.login(app.acl_users, 'admin')
+    >>> buzz.update(country=buzz.getCountry().upper())
+    >>> import transaction
+    >>> transaction.commit()
 
 After the buzz is now visible on the listing.
 

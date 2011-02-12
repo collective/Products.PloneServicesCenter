@@ -38,6 +38,14 @@ Go to the providers folder and add a provider inside a provider folder.
     'http://nohost/plone/support/providers/foo-provider-title'
     >>> portal.support.providers.contentValues()
     [<Provider at /plone/support/providers/foo-provider-title>]
+    >>> provider = portal.support.providers['foo-provider-title']
+
+Tolerate uppercase country codes.
+
+    >>> z2.login(app.acl_users, 'admin')
+    >>> provider.update(country=provider.getCountry().upper())
+    >>> import transaction
+    >>> transaction.commit()
 
 After the provider is now visible on the listing.
 
@@ -46,7 +54,8 @@ After the provider is now visible on the listing.
     <...Foo Provider Title...
     ...Foo Provider Description...
 
-The countries are selectable by the human readable country name.
+The countries are selectable by the human readable country name.  Even
+if, as is the case for the migrated data, the field value is uppercase.
 
     >>> browser.getControl('United Kingdom').selected = True
     >>> browser.getControl('Filter').click()
