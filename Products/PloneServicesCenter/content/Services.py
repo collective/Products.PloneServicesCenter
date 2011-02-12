@@ -28,8 +28,8 @@ servicesSchema = BaseSchema + Schema ((
         searchable=1,
         ),
     StringField('country',
-        validators=('isValidISOCountry',),
         vocabulary=country.vocab,
+        validateVocabulary=True,
         countries=country.countries,
         widget=SelectionWidget(
             label='Country',
