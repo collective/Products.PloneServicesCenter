@@ -42,8 +42,6 @@
       </tal:if>
 
       <div tal:condition="casestudies">
-
-	<div metal:use-macro="here/batch_macros/macros/navigation" />
 	
 	<div tal:repeat="brain batch">
 

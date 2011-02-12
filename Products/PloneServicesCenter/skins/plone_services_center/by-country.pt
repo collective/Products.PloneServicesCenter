@@ -70,8 +70,6 @@
           </span>
       </p>
 
-      <div metal:use-macro="here/batch_macros/macros/navigation" />
-
       <div tal:repeat="provider batch">
 
         <div tal:define="pv provider/getObject">
