@@ -23,7 +23,7 @@ Open a browser and log in as a user who can add content.
 
 Go to the sites folder and add a site using plone inside.
 
-    >>> browser.open(portal.sites.absolute_url())
+    >>> browser.open(portal.support.sites.absolute_url())
     >>> browser.getLink(url='createObject?type_name=SiteUsingPlone').click()
     >>> browser.getControl('Title').value = 'Foo Site Using Plone Title'
     >>> browser.getControl('Description').value = (
@@ -34,4 +34,4 @@ Go to the sites folder and add a site using plone inside.
     <...
                 <dd>Changes saved.</dd>...
     >>> browser.url
-    'http://nohost/plone/sites/foo-site-using-plone-title'
+    'http://nohost/plone/support/sites/foo-site-using-plone-title'

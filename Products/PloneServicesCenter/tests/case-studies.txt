@@ -23,7 +23,7 @@ Open a browser and log in as a user who can add content.
 
 Go to the case studies folder and add a case study inside.
 
-    >>> browser.open(portal['case-studies'].absolute_url())
+    >>> browser.open(portal.support['case-studies'].absolute_url())
     >>> browser.getLink(url='createObject?type_name=CaseStudy').click()
     >>> browser.getControl('Title').value = 'Foo Case Study Title'
     >>> browser.getControl('Description').value = 'Foo Case Study Description'
@@ -33,4 +33,4 @@ Go to the case studies folder and add a case study inside.
     <...
                 <dd>Changes saved.</dd>...
     >>> browser.url
-    'http://nohost/plone/case-studies/foo-case-study-title'
+    'http://nohost/plone/support/case-studies/foo-case-study-title'
