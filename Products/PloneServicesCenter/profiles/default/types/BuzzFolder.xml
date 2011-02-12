@@ -9,10 +9,10 @@
  <property name="factory">addBuzzFolder</property>
  <property name="immediate_view">base_edit</property>
  <property name="global_allow">True</property>
- <alias from="(Default)" to="base_view"/>
+ <alias from="(Default)" to="buzz_listing"/>
  <alias from="properties" to="base_metadata"/>
  <alias from="sharing" to="folder_localrole_form"/>
- <alias from="view" to="base_view"/>
+ <alias from="view" to="buzz_listing"/>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="Buzz"/>
