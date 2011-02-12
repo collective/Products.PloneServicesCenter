@@ -7,12 +7,13 @@ Providers
 Start with a portal.
 
     >>> from Products.PloneServicesCenter import testing
+    >>> app = testing.SERVICES_FUNCTIONAL_TESTING['app']
     >>> portal = testing.SERVICES_FUNCTIONAL_TESTING['portal']
 
 Open a browser and log in as a user who can add content.
 
-    >>> from Products.Five import testbrowser
-    >>> browser = testbrowser.Browser()
+    >>> from plone.testing import z2
+    >>> browser = z2.Browser(app)
     >>> browser.handleErrors = False
     >>> browser.open(portal.absolute_url())
 
@@ -34,6 +35,8 @@ Go to the providers folder and add a provider inside a provider folder.
                 <dd>Changes saved.</dd>...
     >>> browser.url
     'http://nohost/plone/support/providers/foo-provider-title'
+    >>> portal.support.providers.contentValues()
+    [<Provider at /plone/support/providers/foo-provider-title>]
 
 After the provider is now visible on the listing.
 

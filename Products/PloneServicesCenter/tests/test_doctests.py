@@ -1,7 +1,5 @@
-import unittest
+import unittest2 as unittest
 import doctest
-
-from Testing import ZopeTestCase
 
 from Products.PloneServicesCenter import testing
 
@@ -11,7 +9,7 @@ optionflags = (doctest.NORMALIZE_WHITESPACE |
 
 
 def test_suite():
-    install_suite = ZopeTestCase.FunctionalDocFileSuite(
+    install_suite = doctest.DocFileSuite(
         'providers.txt',
         'case-studies.txt',
         'buzz.txt',
