@@ -71,3 +71,9 @@ The listing is a clickable link which takes the user to the item.
     ...http://foo.example.com...
     >>> browser.url
     'http://nohost/plone/support/case-studies/foo-case-study-title'
+
+The description is only shown twice, once in the <head> and once in
+the <body>.
+
+    >>> browser.contents.count('Foo Case Study Description')
+    2

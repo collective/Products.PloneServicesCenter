@@ -69,10 +69,6 @@
 
 </table>
 
-<p class="documentDescription"
-   tal:content="here/Description">
-    Description
-</p>
 
 
 <img src="http://images.shrinktheweb.com/xino.php?stwembed=1&amp;stwxmax=200&amp;stwymax=150&amp;stwaccesskeyid=21806ba9db284d3&amp;stwurl=http://plone.org"

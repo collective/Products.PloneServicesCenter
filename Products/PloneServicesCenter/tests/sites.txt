@@ -73,6 +73,12 @@ The listing is a clickable link which takes the user to the item.
     >>> browser.url
     'http://nohost/plone/support/sites/foo-site-using-plone-title'
 
+The description is only shown twice, once in the <head> and once in
+the <body>.
+
+    >>> browser.contents.count('Foo Site Using Plone Description')
+    2
+
 When a site is submitted a content rule is triggered sending a
 notification.
 

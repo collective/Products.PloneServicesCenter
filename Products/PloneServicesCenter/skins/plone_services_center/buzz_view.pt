@@ -32,10 +32,6 @@
        (opens in new window)
 </div>
 
-<p class="documentDescription" tal:content="here/Description">
-    Desc
-</p>
-
 <h2 i18n:translate="label_buzzview_excerpt">Excerpt</h2>
 
 <p tal:content="structure here/getBody">

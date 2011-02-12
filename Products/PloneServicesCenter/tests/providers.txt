@@ -73,6 +73,12 @@ The listing is a clickable link which takes the user to the provider.
     >>> browser.url
     'http://nohost/plone/support/providers/foo-provider-title'
 
+The description is only shown twice, once in the <head> and once in
+the <body>.
+
+    >>> browser.contents.count('Foo Provider Description')
+    2
+
 The properties aren't purged.
 
     >>> navtree_properties = portal.portal_properties.navtree_properties

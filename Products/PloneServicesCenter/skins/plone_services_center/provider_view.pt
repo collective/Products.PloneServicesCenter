@@ -89,10 +89,6 @@
  </div>
 </div>
 
-<p class="documentDescription"
-   tal:content="here/Description">
-   Description
-</p>
 
 <p tal:replace="structure here/getBody"/>
 
