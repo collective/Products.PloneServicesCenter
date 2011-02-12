@@ -14,8 +14,6 @@ from Products.PloneServicesCenter.content import *
 from config import SKINS_DIR, GLOBALS, PROJECTNAME
 from config import ADD_CONTENT_PERMISSION
 
-import monkey
-
 registerDirectory(SKINS_DIR, GLOBALS)
 
 validation.register(IndustriesValidator('validateIndustries'))
