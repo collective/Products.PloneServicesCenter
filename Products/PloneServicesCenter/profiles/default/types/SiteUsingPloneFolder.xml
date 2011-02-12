@@ -14,8 +14,8 @@
   <element value="SiteUsingPlone"/>
  </property>
  <property name="allow_discussion">False</property>
- <alias from="(Default)" to="sites_view"/>
- <alias from="view" to="sites_view"/>
+ <alias from="(Default)" to="sites_listing"/>
+ <alias from="view" to="sites_listing"/>
  <alias from="edit" to="base_edit"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}/sites_listing" visible="True">
