@@ -20,6 +20,15 @@
                      here_url string:${here/absolute_url}/${template/getId};
                      global batch_base_url python: here_url + (country and '/' + country or '')">
 
+      <h2 i18n:translate="label_country_plone_providers">Plone Service Providers</h2>
+
+
+
+      <p class="documentDescription" i18n:translate="label_country_descr">
+        The following listing shows Plone providers around the
+        world.
+      </p>
+
       <form name="testForm" action="test" 
             tal:attributes="action string:${portal_url}/filterByCountry"
             style="white-space:nowrap"> 
@@ -46,21 +55,10 @@
         </div>
       </form>
 
-      <h2 i18n:translate="label_country_plone_providers">Plone providers</h2>
-
-
-
-      <p class="documentDescription" i18n:translate="label_country_descr">
-        The following listing shows Plone providers around the
-        world.
-      </p>
-      <p i18n:translate="label_country_select">
-        Select a country from the list on the right to see providers in your area.
-      </p>
       <p style="text-align: right" i18n:translate="label_providers_currently">
         Currently listing
         <strong>
-          <span i18n:name="label_providers_counts" tal:replace="python:len(providers)" /> Plone providers
+          <span i18n:name="label_providers_counts" tal:replace="python:len(providers)" /> service providers
         </strong>
         <span tal:condition="not: country">
           in
@@ -93,7 +91,7 @@
               </td>
               </tr>
               </table>
-             </div> <!-- liting title-->
+             </div> <!-- listing title-->
 
 
             <div class="provider-body">            
