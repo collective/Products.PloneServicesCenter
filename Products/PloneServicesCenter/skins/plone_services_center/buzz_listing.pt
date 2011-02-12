@@ -85,14 +85,6 @@
 		<strong i18n:translate="label_psc_industry">Industry:</strong>
 		<span tal:replace="structure industries" />
 	      </span>
-<!-- commented out for now, we shouldn't show bare email addresses
-	      <span tal:define="contact_email buzz/getContactEmail;
-				contact_name buzz/getContactName"
-		    tal:condition="contact_email">
-		<strong>Contact:</strong>
-		<tal:display-contact metal:use-macro="here/psc_macros/macros/display-contact"/>
-	      </span>
--->
 	      <tal:if tal:condition="buzz/canSeeProvider">
 		<span tal:define="provider buzz/getProvider">
 		  <strong i18n:translate="label_psc_provider">Provider:</strong>
@@ -133,14 +125,6 @@
 		<strong i18n:translate="label_buzzlist_industry">Industry:</strong>
 		<span tal:replace="structure industries" />
 	      </span>
-<!-- commented out for now, we shouldn't show bare email addresses
-	      <span tal:define="contact_email buzz/getContactEmail;
-				contact_name buzz/getContactName"
-		    tal:condition="contact_email">
-		<strong>Contact:</strong>
-		<tal:display-contact metal:use-macro="here/psc_macros/macros/display-contact"/>
-	      </span>
--->
 	      <tal:if tal:condition="buzz/canSeeProvider">
 		<span tal:define="provider buzz/getProvider">
 		  <strong i18n:translate="label_psc_provider">Provider:</strong>
