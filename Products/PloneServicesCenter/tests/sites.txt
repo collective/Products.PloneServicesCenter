@@ -36,7 +36,21 @@ Go to the sites folder and add a site using plone inside.
     >>> browser.url
     'http://nohost/plone/support/sites/foo-site-using-plone-title'
 
-When a provider is submitted a content rule is triggered sending a
+After the site is now visible on the listing.
+
+    >>> browser.open(portal.support.sites.absolute_url())
+    >>> print browser.contents
+    <...Foo Site Using Plone Title...
+    ...Foo Site Using Plone Description...
+    >>> browser.getLink('Foo Site Using Plone Title').click()
+    >>> print browser.contents
+    <...Foo Site Using Plone Title...
+    ...Foo Site Using Plone Description...
+    ...http://foo.example.com...
+    >>> browser.url
+    'http://nohost/plone/support/sites/foo-site-using-plone-title'
+
+When a site is submitted a content rule is triggered sending a
 notification.
 
     >>> TODO

@@ -13,4 +13,8 @@
  <column value="getContactName"/>
  <column value="getCountry"/>
  <column value="getUrl"/>
+ <column value="isPremium"/>
+ <column value="isSponsor"/>
+ <column value="getIndustry"/>
+ <column value="getRating"/>
 </object>

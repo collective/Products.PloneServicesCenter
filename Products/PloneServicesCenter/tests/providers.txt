@@ -35,6 +35,20 @@ Go to the providers folder and add a provider inside a provider folder.
     >>> browser.url
     'http://nohost/plone/support/providers/foo-provider-title'
 
+After the provider is now visible on the listing.
+
+    >>> browser.open(portal.support.providers.absolute_url())
+    >>> print browser.contents
+    <...Foo Provider Title...
+    ...Foo Provider Description...
+    >>> browser.getLink('Foo Provider Title').click()
+    >>> print browser.contents
+    <...Foo Provider Title...
+    ...Foo Provider Description...
+    ...http://foo.example.com...
+    >>> browser.url
+    'http://nohost/plone/support/providers/foo-provider-title'
+
 The properties aren't purged.
 
     >>> navtree_properties = portal.portal_properties.navtree_properties
