@@ -59,7 +59,7 @@
         <td>
             <a href=""
                tal:content="python:here.Vocabulary('country')[0].getValue(country)"
-               tal:attributes="href string:${portal_url}/providers/by-country/${country}">
+               tal:attributes="href string:${portal_url}/support/providers/by-country/${country}">
             Country
             </a>
         </td>

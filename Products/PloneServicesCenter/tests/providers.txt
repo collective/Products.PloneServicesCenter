@@ -79,6 +79,13 @@ the <body>.
     >>> browser.contents.count('Foo Provider Description')
     2
 
+The industry and country links to the folder view with the appropriate
+filter.
+
+    >>> browser.getLink('United Kingdom')
+    <Link text='United Kingdom'
+    url='http://nohost/plone/support/providers/by-country/gb'>
+
 The properties aren't purged.
 
     >>> navtree_properties = portal.portal_properties.navtree_properties

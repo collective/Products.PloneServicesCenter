@@ -29,6 +29,7 @@ Go to the case studies folder and add a case study inside.
     >>> browser.getControl('Title').value = 'Foo Case Study Title'
     >>> browser.getControl('Description').value = 'Foo Case Study Description'
     >>> browser.getControl('United Kingdom').selected = True
+    >>> browser.getControl('Transportation and Logistics').selected = True
     >>> browser.getControl('URL').value = 'http://foo.example.com'
     >>> browser.getControl('Save').click()
     >>> print browser.contents
@@ -77,3 +78,13 @@ the <body>.
 
     >>> browser.contents.count('Foo Case Study Description')
     2
+
+The industry and country links to the folder view with the appropriate
+filter.
+
+    >>> browser.getLink('Transportation and Logistics')
+    <Link text='Transportation and Logistics'
+    url='http://nohost/plone/support/case-studies?industries:list=Transportation%20and%20Logistics'>
+    >>> browser.getLink('United Kingdom')
+    <Link text='United Kingdom'
+    url='http://nohost/plone/support/case-studies?countries:list=gb'>
