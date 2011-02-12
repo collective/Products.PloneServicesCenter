@@ -40,3 +40,8 @@ The properties aren't purged.
     >>> navtree_properties = portal.portal_properties.navtree_properties
     >>> 'Plone Site' in navtree_properties.getProperty('metaTypesNotToList')
     True
+
+When a provider is submitted a content rule is triggered sending a
+notification.
+
+    >>> TODO

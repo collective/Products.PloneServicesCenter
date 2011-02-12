@@ -35,3 +35,8 @@ Go to the sites folder and add a site using plone inside.
                 <dd>Changes saved.</dd>...
     >>> browser.url
     'http://nohost/plone/support/sites/foo-site-using-plone-title'
+
+When a provider is submitted a content rule is triggered sending a
+notification.
+
+    >>> TODO
