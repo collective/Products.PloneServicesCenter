@@ -1,7 +1,4 @@
-/* @override 
-	http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey9716.css
-	http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey0244.css
-*/
+/* @override http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey9716.css */
 
 .listing-provider,
 .listing-site { 
@@ -22,11 +19,6 @@
 .listing-provider .discreet,
 .listing-site .discreet { 
   font-size: 90%;
-}
-
-.level1 h2 {
-  border-left: 2px solid #ec001a;
-  padding-left: 7px;
 }
 
 .listing-provider .first-infos,
