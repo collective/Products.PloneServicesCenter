@@ -78,8 +78,3 @@ the <body>.
 
     >>> browser.contents.count('Foo Site Using Plone Description')
     2
-
-When a site is submitted a content rule is triggered sending a
-notification.
-
-    >>> TODO
