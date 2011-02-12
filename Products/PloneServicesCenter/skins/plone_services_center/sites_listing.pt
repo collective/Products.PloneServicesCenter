@@ -7,8 +7,7 @@
 
   <body>
     <div metal:fill-slot="main"
-         tal:define="country_tool context/portal_countryutils;
-                     countries_dict country_tool/getCountryIsoDict; 
+         tal:define="countries_dict python:modules['Products.PloneServicesCenter.content.country'].vocab;
                      countries python:request.get('countries',[]); 
                      industries_vocab context/getIndustryVocabulary;
                      industries python:request.get('industries',[]);
@@ -20,7 +19,7 @@
 
       <h1 class="documentFirstHeading" i18n:translate="label_siteslist_plonesite">Plone Sites</h1>
 
-      <form tal:attributes="action string:${here_url}/${template_id}">
+      <form tal:attributes="action string:${context/absolute_url}/${template/getId}">
         <div>
           <div style="float: right">
             <tal:filter-form metal:use-macro="here/psc_macros/macros/filter-form"/>
@@ -82,7 +81,7 @@
               <span tal:define="country brain/getCountry"
                     tal:condition="country">
                 <strong i18n:translate="label_psc_country">Country:</strong>
-                <a tal:content="python: countries_dict.get(country, country)"
+                <a tal:content="python: countries_dict.getValue(country, country)"
                    tal:attributes="href string:${base_url}?countries:list=${country}" />
               </span>
               <span tal:condition="brain/getIndustry">
@@ -129,7 +128,7 @@
               <span tal:define="country brain/getCountry"
                     tal:condition="country">
                 <strong i18n:translate="label_siteslist_country">Country:</strong>
-                <a tal:content="python: countries_dict.get(country, country)"
+                <a tal:content="python: countries_dict.getValue(country, country)"
                    tal:attributes="href string:${base_url}?countries:list=${country}" />
               </span>
               <span tal:condition="brain/getIndustry">

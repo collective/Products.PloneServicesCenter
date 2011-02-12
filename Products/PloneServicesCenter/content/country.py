@@ -1,3 +1,5 @@
+from AccessControl import allow_module
+
 from Products.Archetypes import atapi
 
 # BBB pake the ATCountry widget unpickleable
@@ -7,6 +9,9 @@ from Products.Archetypes import Widget
 sys.modules['Products.ATCountryWidget'] = Products.Archetypes
 sys.modules['Products.ATCountryWidget.Widget'] = Widget
 Widget.CountryWidget = Widget.SelectionWidget
+
+module = "Products.PloneServicesCenter.content.country"
+allow_module(module)
 
 countries = {
     "Europe (Western)": atapi.DisplayList([

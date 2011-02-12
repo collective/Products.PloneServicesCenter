@@ -6,8 +6,7 @@
       i18n:domain="ploneservicescenter">
   <body>
     <div metal:fill-slot="main"
-         tal:define="country_tool context/portal_countryutils;
-                     countries_dict country_tool/getCountryIsoDict; 
+         tal:define="countries_dict python:modules['Products.PloneServicesCenter.content.country'].vocab;
                      subpath request/traverse_subpath | nothing;
                      country python:subpath and subpath[0] or None;
                      countries python:country and [ country ] or None;
@@ -40,9 +39,7 @@
 
             <input class="searchButton"
                    type="submit"
-                   tabindex=""
                    value="Filter"
-                   tal:attributes="tabindex tabindex/next"
                    i18n:attributes="value label_search;" />
 
           </div>
@@ -115,7 +112,7 @@
               <span tal:define="country provider/getCountry"
                     tal:condition="country">
                 <strong i18n:translate="label_psc_country">Country:</strong>
-                <a tal:content="python: countries_dict.get(country, country)"
+                <a tal:content="python: countries_dict.getValue(country, country)"
                    tal:attributes="href string:${here/absolute_url}/${template/getId}/${country}" />
               </span>
               <!-- commented out for now, we shouldn't show bare email addresses
@@ -171,7 +168,7 @@
               <span tal:define="country provider/getCountry"
                     tal:condition="country">
                 <strong i18n:translate="label_psc_country">Country:</strong>
-                <a tal:content="python: countries_dict.get(country, country)"
+                <a tal:content="python: countries_dict.getValue(country, country)"
                    tal:attributes="href string:${here/absolute_url}/${template/getId}/${country}" />
               </span>
               <!-- commented out for now, we shouldn't show bare email addresses
