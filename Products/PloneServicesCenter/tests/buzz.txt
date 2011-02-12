@@ -28,6 +28,7 @@ Go to the buzz folder and add a buz object inside.
     >>> browser.getLink(url='createObject?type_name=Buzz').click()
     >>> browser.getControl('Title').value = 'Foo Buzz Title'
     >>> browser.getControl('Description').value = 'Foo Buzz Description'
+    >>> browser.getControl('United Kingdom').selected = True
     >>> browser.getControl('URL').value = 'http://foo.example.com'
     >>> browser.getControl('Save').click()
     >>> print browser.contents
@@ -42,6 +43,17 @@ After the buzz is now visible on the listing.
     >>> print browser.contents
     <...Foo Buzz Title...
     ...Foo Buzz Description...
+
+The countries are selectable by the human readable country name.
+
+    >>> browser.getControl('United Kingdom').selected = True
+    >>> browser.getControl('Filter').click()
+    >>> print browser.contents
+    <...Foo Buzz Title...
+    ...Foo Buzz Description...
+
+The listing is a clickable link which takes the user to the item.
+
     >>> browser.getLink('Foo Buzz Title').click()
     >>> print browser.contents
     <...Foo Buzz Title...

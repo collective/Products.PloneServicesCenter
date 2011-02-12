@@ -28,6 +28,7 @@ Go to the case studies folder and add a case study inside.
     >>> browser.getLink(url='createObject?type_name=CaseStudy').click()
     >>> browser.getControl('Title').value = 'Foo Case Study Title'
     >>> browser.getControl('Description').value = 'Foo Case Study Description'
+    >>> browser.getControl('United Kingdom').selected = True
     >>> browser.getControl('URL').value = 'http://foo.example.com'
     >>> browser.getControl('Save').click()
     >>> print browser.contents
@@ -42,6 +43,17 @@ After the case study is now visible on the listing.
     >>> print browser.contents
     <...Foo Case Study Title...
     ...Foo Case Study Description...
+
+The countries are selectable by the human readable country name.
+
+    >>> browser.getControl('United Kingdom').selected = True
+    >>> browser.getControl('Filter').click()
+    >>> print browser.contents
+    <...Foo Case Study Title...
+    ...Foo Case Study Description...
+
+The listing is a clickable link which takes the user to the item.
+
     >>> browser.getLink('Foo Case Study Title').click()
     >>> print browser.contents
     <...Foo Case Study Title...

@@ -28,6 +28,7 @@ Go to the providers folder and add a provider inside a provider folder.
     >>> browser.getLink(url='createObject?type_name=Provider').click()
     >>> browser.getControl('Title').value = 'Foo Provider Title'
     >>> browser.getControl('Description').value = 'Foo Provider Description'
+    >>> browser.getControl('United Kingdom').selected = True
     >>> browser.getControl('URL').value = 'http://foo.example.com'
     >>> browser.getControl('Save').click()
     >>> print browser.contents
@@ -44,6 +45,17 @@ After the provider is now visible on the listing.
     >>> print browser.contents
     <...Foo Provider Title...
     ...Foo Provider Description...
+
+The countries are selectable by the human readable country name.
+
+    >>> browser.getControl('United Kingdom').selected = True
+    >>> browser.getControl('Filter').click()
+    >>> print browser.contents
+    <...Foo Provider Title...
+    ...Foo Provider Description...
+
+The listing is a clickable link which takes the user to the provider.
+
     >>> browser.getLink('Foo Provider Title').click()
     >>> print browser.contents
     <...Foo Provider Title...
