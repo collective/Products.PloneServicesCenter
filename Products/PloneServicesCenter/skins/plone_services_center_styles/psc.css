@@ -1,9 +1,12 @@
-/* @override http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey9716.css */
+/* @override 
+	http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey9716.css
+	http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey0244.css
+*/
 
 .listing-provider,
 .listing-site { 
   clear: both;
-  padding: 0.1em 1em;
+  padding: 1em;
   margin: 1em 0;
 }
 
@@ -14,11 +17,6 @@
 
 .level2 {
   background-color: #eee;
-  border: 1px dashed #ccc;
-}
-
-.level1 .site-description {
-
 }
 
 .listing-provider .discreet,
@@ -43,14 +41,11 @@
 .listing-provider .second-infos,
 .listing-site .second-infos { 
   clear: both;
-  padding: 0.3em;
-  margin: 0.5em;
 }
 
 .first-infos span,
 .second-infos span,
 .third-infos span { 
-  margin: 0 0.5em;
 }
 
 .listing-provider dl.third-infos,
@@ -59,15 +54,6 @@
   width: 8em;
 }
 
-.listing-provider dl.third-infos dd,
-.listing-site dl.third-infos dd { 
-  margin: 0 1em 0.5em 0;
-}
-
-.listing-provider dl.third-infos dt,
-.listing-site dl.third-infos dt { 
-  margin: 0 1em 0 0;
-}
 
 .listing-provider-image-link img,
 .listing-site-image-link img { 
