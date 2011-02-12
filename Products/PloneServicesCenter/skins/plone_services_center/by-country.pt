@@ -115,14 +115,6 @@
                 <a tal:content="python: countries_dict.getValue(country, country)"
                    tal:attributes="href string:${here/absolute_url}/${template/getId}/${country}" />
               </span>
-              <!-- commented out for now, we shouldn't show bare email addresses
-                   <span tal:define="contact_email pv/getContactEmail;
-                   contact_name pv/getContactName"
-                   tal:condition="contact_email">
-                   <strong>Contact:</strong>
-                   <tal:display-contact metal:use-macro="here/psc_macros/macros/display-contact"/>
-                   </span>
-              -->
             </div> <!-- second infos-->
             </div> <!-- provider body-->
           
