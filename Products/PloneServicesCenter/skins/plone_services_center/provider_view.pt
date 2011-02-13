@@ -157,6 +157,15 @@
 </div>
 </tal:nosites>
 
+<p class="discreet">
+    Disclaimer: 
+    While the Plone Foundation performs a rudimentary background check on the
+    content contributed to this site to make sure it is legitimate,
+    it does not constitute any kind of endorsement nor responsibility for its
+    accuracy. Use sound judgement when engaging in any business transaction, 
+    as you would anywhere else.
+</p>
+
 </metal:main>
 
 </body>
