@@ -1,3 +1,5 @@
+from Acquisition import aq_parent
+
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.public import *
 from Services import *
@@ -81,18 +83,6 @@ schema = servicesSchema.copy() + Schema ((
         read_permission='Manage portal',
         ),
 
-    BooleanField('hostingProvider',
-        widget=BooleanWidget(
-   		             label="Is this company a hosting provider?",
-		             label_msgid="label_provider_hostingprovider",
-		             description="Hosting providers are companies which can host Plone sites for customers on their own servers.",
-		             description_msgid="help_provider_hostingprovider",
-		             i18n_domain='ploneservicescenter',
-                            ),
-        index=('KeywordIndex:schema',),
-        ),
-
-
     BooleanField('sponsor',
         accessor='isSponsor',
         write_permission='Review portal content',
@@ -133,6 +123,14 @@ schema = servicesSchema.copy() + Schema ((
 
     
     ))
+
+schema['subject'].isMetadata = False
+schema['subject'].vocabulary = 'availableServices'
+schema.changeSchemataForField('subject', 'default')
+schema['subject'].widget = MultiSelectionWidget(
+    format='checkbox',
+    label=u'Provided Services',
+    description=u'Select all the services the provider offers.')
 
 del schema['industry']
 del schema['rating']
@@ -232,5 +230,8 @@ class Provider(BaseServicesContent):
         if self.isPremium():
             classes.append("premium-sponsor")
         return " ".join(classes)
+
+    def availableServices(self):
+        return aq_parent(self).Subject()
 
 registerType(Provider, 'PloneServicesCenter')

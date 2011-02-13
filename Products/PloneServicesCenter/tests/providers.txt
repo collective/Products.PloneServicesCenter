@@ -22,7 +22,22 @@ Open a browser and log in as a user who can add content.
     >>> browser.getControl('Password').value = 'secret'
     >>> browser.getControl('Log in').click()
 
-Go to the providers folder and add a provider inside a provider folder.
+A site manager can set the available services which can be provided by
+each provider by setting the keywords/tags on the providers folder.
+
+    >>> browser.open(portal.support.providers.absolute_url())
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl(name="subject_keywords:lines").value = """\
+    ... Hosting provider
+    ... Training
+    ... Consulting
+    ... Custom development"""
+    >>> browser.getControl('Save').click()
+    >>> print browser.contents
+    <...
+                <dd>Changes saved.</dd>...
+
+Add a provider inside a provider folder.
 
     >>> browser.open(portal.support.providers.absolute_url())
     >>> browser.getLink(url='createObject?type_name=Provider').click()
@@ -30,6 +45,24 @@ Go to the providers folder and add a provider inside a provider folder.
     >>> browser.getControl('Description').value = 'Foo Provider Description'
     >>> browser.getControl('United Kingdom').selected = True
     >>> browser.getControl('URL').value = 'http://foo.example.com'
+
+Providers have a number of checkboxes that set keywords.
+
+    >>> browser.getControl("Hosting provider")
+    <ItemControl name='subject:list' type='checkbox' optionValue='Hosting provider' selected=False>
+    >>> browser.getControl("Training")
+    <ItemControl name='subject:list' type='checkbox' optionValue='Training' selected=False>
+    >>> browser.getControl("Consulting")
+    <ItemControl name='subject:list' type='checkbox' optionValue='Consulting' selected=False>
+    >>> browser.getControl("Custom development")
+    <ItemControl name='subject:list' type='checkbox' optionValue='Custom development' selected=False>
+    >>> browser.getControl('Hosting provider').selected = True
+    >>> browser.getControl(name="subject_keywords:lines")
+    Traceback (most recent call last):
+    LookupError: name 'subject_keywords:lines'
+
+Save the provider.
+
     >>> browser.getControl('Save').click()
     >>> print browser.contents
     <...
