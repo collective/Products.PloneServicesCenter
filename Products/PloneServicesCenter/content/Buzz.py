@@ -1,12 +1,15 @@
-from Products.Archetypes.public import *
-from Services import *
 from zope.interface import implements
+
+from Products.Archetypes import atapi
+
 from Products.PloneServicesCenter.interfaces import IBuzz
+from Products.PloneServicesCenter.content import Services
 
-schema = servicesSchema + Schema ((
 
-    TextField('body',
-        widget=RichWidget(
+schema = Services.servicesSchema + atapi.Schema((
+
+    atapi.TextField('body',
+        widget=atapi.RichWidget(
             label="Detailed information",
             label_msgid="label_psc_detailed_info",
             description="Enter the details description about this buzz.",
@@ -20,31 +23,34 @@ schema = servicesSchema + Schema ((
         searchable=1,
         ),
 
-    ImageField('logo',
-               widget=ImageWidget(
+    atapi.ImageField('logo',
+               widget=atapi.ImageWidget(
                    label="Logo",
                    label_msgid="label_general_logo",
-                   description="Add a logo for the case study (normally the customer logo). Max 150x75 pixels (will be resized if bigger).",
+                   description="""\
+Add a logo for the case study (normally the customer logo). Max 150x75
+pixels (will be resized if bigger).""",
                    description_msgid="help_buzz_logo",
                    i18n_domain='ploneservicescenter',
                ),
-               sizes= {'large'   : (768, 768),
-                       'preview' : (400, 400),
-                       'view'    : (250, 250),
-                       'mini'    : (200, 200),
-                       'thumb'   : (128, 128),
-                       'tile'    :  (64, 64),
-                       'icon'    :  (32, 32),
-                       'listing' :  (16, 16),
+               sizes={'large': (768, 768),
+                       'preview': (400, 400),
+                       'view': (250, 250),
+                       'mini': (200, 200),
+                       'thumb': (128, 128),
+                       'tile': (64, 64),
+                       'icon': (32, 32),
+                       'listing': (16, 16),
                       },
         ),
 
-    ReferenceField('provider',
-        widget=ReferenceWidget(
+    atapi.ReferenceField('provider',
+        widget=atapi.ReferenceWidget(
             checkbox_bound=0,
             label="Provider",
             label_msgid="label_psc_provider_cat",
-            description="Select a provider from the below listing for the media coverage.",
+            description="""\
+Select a provider from the below listing for the media coverage.""",
             description_msgid="help_buzz_provider",
             i18n_domain='ploneservicescenter',
         ),
@@ -57,14 +63,13 @@ schema = servicesSchema + Schema ((
     ))
 
 
-class Buzz(BaseServicesContent):
+class Buzz(Services.BaseServicesContent):
     """A link to media coverage of Plone."""
 
     implements(IBuzz)
     schema = schema
     archetype_name = "Media Coverage"
-    typeDescription= "A link to media coverage of Plone."
-    typeDescMsgId  = "help_buzz_archetype"
+    typeDescription = "A link to media coverage of Plone."
+    typeDescMsgId = "help_buzz_archetype"
 
-registerType(Buzz, 'PloneServicesCenter')
-
+atapi.registerType(Buzz, 'PloneServicesCenter')

@@ -1,8 +1,5 @@
 from Testing import ZopeTestCase
 
-from Products.PloneServicesCenter import config
-# config.CREATE_INITIAL_CONTENT = True
-
 # Make the boring stuff load quietly
 ZopeTestCase.installProduct('CMFCore', quiet=1)
 ZopeTestCase.installProduct('CMFDefault', quiet=1)

@@ -1,7 +1,6 @@
 from Products.Five import BrowserView
-from Products.PloneServicesCenter.interfaces import IProviderFolder
-from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
+
 
 class DownloadCSV(BrowserView):
     """ Download a CSV of all the providers
@@ -11,7 +10,7 @@ class DownloadCSV(BrowserView):
         self.context = context
         self.request = request
         self.content = ''
-        
+
     def write(self, csvrow):
         self.content = self.content + csvrow
 
@@ -30,8 +29,12 @@ class DownloadCSV(BrowserView):
             provider = provider_brain.getObject()
             wfstate = workflow_tool.getInfoFor(provider, 'review_state', '')
 
-            row = '"%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (provider.pretty_title_or_id(), provider.getContactName(), provider.getContactEmail(), provider.isSponsor(), provider.isPremium(), provider.getEmployees(), provider.getCompanySize(), provider.getAnnualRevenues(), wfstate )
+            row = '"%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (
+                provider.pretty_title_or_id(),
+                provider.getContactName(), provider.getContactEmail(),
+                provider.isSponsor(), provider.isPremium(),
+                provider.getEmployees(), provider.getCompanySize(),
+                provider.getAnnualRevenues(), wfstate )
             self.write(row)
-
 
         return self.content

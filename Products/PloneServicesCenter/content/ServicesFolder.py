@@ -1,16 +1,16 @@
-from Products.Archetypes.public import *
-#from Products.Archetypes import BaseBTreeFolder
+from Products.Archetypes import atapi
 from Products.CMFCore.utils import getToolByName
 from sets import Set
 
 from Products.PloneServicesCenter.content import country
 
 
-servicesFolderSchema = BaseFolderSchema + Schema ((
+servicesFolderSchema = atapi.BaseFolderSchema + atapi.Schema((
 
     ))
 
-class BaseServicesFolder(BaseFolder):
+
+class BaseServicesFolder(atapi.BaseFolder):
     """
     Base class for services
     """
@@ -30,11 +30,11 @@ class BaseServicesFolder(BaseFolder):
         objs = catalog(path='/'.join(section_object.getPhysicalPath()))
         for o in objs:
             item = getattr(o, what, None)
-            if item: 
+            if item:
                 if isinstance(item, tuple):
                     item = item[0]
                 result.add(item)
-        result=list(result)
+        result = list(result)
         result.sort()
         return result
 
@@ -90,16 +90,16 @@ class BaseServicesFolder(BaseFolder):
         Get objects filtered by countries/industries if asked for,
         handling some special cases
         """
-        query = { }
+        query = {}
 
         ## Add countries/industries, filtering out empty ones
         if countries:
-            countries = [ c for c in countries if c ]        
+            countries = [c for c in countries if c ]
             if countries:
                 query["getCountry"] = countries
 
         if industries:
-            industries = [ i for i in industries if i ]
+            industries = [i for i in industries if i ]
             if industries:
                 query["getIndustry"] = industries
 
@@ -110,7 +110,6 @@ class BaseServicesFolder(BaseFolder):
 
         catalog = getToolByName(self, 'portal_catalog')
         return catalog(**query)
-
 
     def getSitesUsingPlone(self, **kwargs):
         """
@@ -143,7 +142,7 @@ class BaseServicesFolder(BaseFolder):
         """
         return self._getFilteredObjects(meta_type="Provider",
                                         sort_on='getSortExpression',
-                                        **kwargs)       
+                                        **kwargs)
 
     def getIndustryVocabulary(self):
         """
@@ -154,7 +153,6 @@ class BaseServicesFolder(BaseFolder):
             props.psc_properties.getProperty("industryVocabulary"))
         industries.sort()
         return industries
-    
 
     def makeIndustryLinks(self, base_url, brain):
         """
@@ -165,7 +163,8 @@ class BaseServicesFolder(BaseFolder):
         if callable(industries):
             # So we can handle both brains and real objects
             industries = industries()
-        links = [ '<a href="%s?industries:list=%s">%s</a>' % (base_url, industry, industry) for industry in industries ]
+        links = ['<a href="%s?industries:list=%s">%s</a>' %
+                 (base_url, industry, industry) for industry in industries]
         return ", ".join(links)
 
     def getSortedCountryPairs(self):

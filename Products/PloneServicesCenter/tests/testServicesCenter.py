@@ -1,19 +1,19 @@
 #
-# PloneServicesCenterTestCase 
+# PloneServicesCenterTestCase
 #
 
-import os, sys
+import os
+import sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
-from Testing import ZopeTestCase
 from Products.PloneServicesCenter.tests import PloneServicesCenterTestCase
 
-from AccessControl import Unauthorized
 from Products.PloneServicesCenter.config import CREATE_INITIAL_CONTENT
 
 
-class TestInstallation(PloneServicesCenterTestCase.PloneServicesCenterTestCase):
+class TestInstallation(
+    PloneServicesCenterTestCase.PloneServicesCenterTestCase):
 
     def afterSetUp(self):
         pass
@@ -49,6 +49,7 @@ class TestInstallation(PloneServicesCenterTestCase.PloneServicesCenterTestCase):
         items = self.folder.objectIds()
         self.failUnless('plone_sites' in items)
 
+
 class TestAddingStuff(PloneServicesCenterTestCase.PloneServicesCenterTestCase):
 
     def afterSetUp(self):
@@ -81,7 +82,8 @@ class TestAddingStuff(PloneServicesCenterTestCase.PloneServicesCenterTestCase):
         self.failUnless(self.plone_sites.getSitesUsingPlone())
 
 
-class TestInstallingDefaultContent(PloneServicesCenterTestCase.PloneServicesCenterTestCase):
+class TestInstallingDefaultContent(
+    PloneServicesCenterTestCase.PloneServicesCenterTestCase):
 
     def afterSetUp(self):
         pass
@@ -123,37 +125,19 @@ class TestWorkflow(PloneServicesCenterTestCase.PloneServicesCenterTestCase):
         self.workflow = self.portal.portal_workflow
 
         self.portal.acl_users._doAddUser('member', 'secret', ['Member'], [])
-        self.portal.acl_users._doAddUser('reviewer', 'secret', ['Reviewer'], [])
+        self.portal.acl_users._doAddUser(
+            'reviewer', 'secret', ['Reviewer'], [])
         self.portal.acl_users._doAddUser('manager', 'secret', ['Manager'], [])
 
         self.folder.invokeFactory('SiteUsingPloneFolder', 'plone_sites')
         self.plone_sites = self.folder.plone_sites
 
     def testMemberAddsSite(self):
-        
+
         self.login()
         self.plone_sites.invokeFactory('SiteUsingPlone', 'site1')
         self.failUnless('site1' in self.plone_sites.objectIds())
 
-
-    # d'oh workflow tests are not complete... 
-
-
-
-# These tests assumed only testdata in the xml. Disable tillwe have real testdata
-
-#    def testReferencesAdded(self):
-#        site = self.portal.plonenet.sites.contentValues()[0]
-#        provider = self.portal.plonenet.providers.contentValues()[0]
-#        self.assertEqual(site.getProvider(), provider)
-#
-##    def testLocalRoles(self):
-#        self.portal.plonenet.restrictedTraverse('plonenet')
-#        self.assertRaises(Unauthorized, self.portal.plonenet.providers.restrictedTraverse,'setTitle')
-#        self.login('testprovider')
-#
-#        self.portal.plonenet.providers.restrictedTraverse('setTitle')
-#
 
 def test_suite():
     from unittest import TestSuite, makeSuite
@@ -163,6 +147,3 @@ def test_suite():
     suite.addTest(makeSuite(TestInstallingDefaultContent))
     suite.addTest(makeSuite(TestWorkflow))
     return suite
-
-if __name__ == '__main__':
-    framework()

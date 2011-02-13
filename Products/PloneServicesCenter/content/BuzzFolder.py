@@ -1,22 +1,25 @@
-from ServicesFolder import *
 from zope.interface import implements
+
+from Products.Archetypes import atapi
+
+from Products.PloneServicesCenter.content import ServicesFolder
 from Products.PloneServicesCenter.interfaces import IBuzzFolder
 
-class BuzzFolder(BaseServicesFolder):
+
+class BuzzFolder(ServicesFolder.BaseServicesFolder):
     """Folder for Plone buzz items."""
 
     implements(IBuzzFolder)
-    allowed_content_types=['Buzz']
-
+    allowed_content_types = ['Buzz']
 
     actions = (
         {
-            'id'          : 'view',
-            'name'        : 'View',
-            'action'      : 'string:${object_url}/buzz_listing',
-            'permissions' : ('View',)
+            'id': 'view',
+            'name': 'View',
+            'action': 'string:${object_url}/buzz_listing',
+            'permissions': ('View',)
         },
     )
-    
 
-registerType(BuzzFolder, 'PloneServicesCenter')
+
+atapi.registerType(BuzzFolder, 'PloneServicesCenter')

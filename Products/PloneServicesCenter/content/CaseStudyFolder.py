@@ -1,21 +1,24 @@
-from ServicesFolder import *
 from zope.interface import implements
+
+from Products.Archetypes import atapi
+
+from Products.PloneServicesCenter.content import ServicesFolder
 from Products.PloneServicesCenter.interfaces import ICaseStudyFolder
 
-class CaseStudyFolder(BaseServicesFolder):
+
+class CaseStudyFolder(ServicesFolder.BaseServicesFolder):
     """Folder for case studies."""
 
     implements(ICaseStudyFolder)
-    allowed_content_types=['CaseStudy']
-    
+    allowed_content_types = ['CaseStudy']
 
     actions = (
         {
-            'id'          : 'view',
-            'name'        : 'View',
-            'action'      : 'string:${object_url}/casestudy_listing',
-            'permissions' : ('View',)
+            'id': 'view',
+            'name': 'View',
+            'action': 'string:${object_url}/casestudy_listing',
+            'permissions': ('View',)
         },
     )
 
-registerType(CaseStudyFolder, 'PloneServicesCenter')
+atapi.registerType(CaseStudyFolder, 'PloneServicesCenter')

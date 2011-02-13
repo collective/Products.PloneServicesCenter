@@ -13,11 +13,9 @@ for Plone, with content types for:
 
 Requires:
 ---------
- - Plone 2.1
+ - Plone 4+
 
  - ArchAddOn, https://svn.plone.org/svn/collective/ArchAddOn
-
- - ATCountryWidget, http://svn.gocept.com/repos/gocept/ATCountryWidget/trunk
 
 Recommended*:
 -------------
@@ -25,14 +23,6 @@ Recommended*:
     download the Plone.net theme
 
  - PloneNetTheme, http://svn.plone.org/svn/collective/PloneNetTheme/trunk/
-
-Buildouts:
-----------
-Currently are some buildouts with all depends ready for use in the Collective Repository
-
- - PloneServicesCenter for Plone 2.5, http://svn.plone.org/svn/collective/PloneNetTheme/buildouts/plone2.5_buildout/
-
- - PloneServicesCenter for Plone 3.0 or later, http://svn.plone.org/svn/collective/PloneNetTheme/buildouts/plone3_buildout/
 
 Translation:
 ------------
