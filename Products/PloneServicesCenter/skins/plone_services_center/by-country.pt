@@ -86,8 +86,6 @@
               </a></p>
               </td>
               <td>
-              <a tal:attributes="href string:${here/portal_url}/about/sponsorship">
-              <img src="badge-premier.png" alt="Plone Foundation Premium Sponsor" /></a>
               </td>
               </tr>
               </table>
@@ -104,6 +102,8 @@
                                    alt provider/Title" />
             </a>
             <p tal:content="provider/Description"></p>
+              <a style="float:right" tal:attributes="href string:${here/portal_url}/support/about/sponsorship">
+              <img src="badge-premier.png" alt="Plone Foundation Premium Sponsor" /></a>
             <div class="second-infos">
               <span tal:define="country provider/getCountry"
                     tal:condition="country">
@@ -132,10 +132,6 @@
               </a></p>
               </td>
               <td>
-              <span tal:condition="provider/isSponsor">
-              <a tal:attributes="href string:${here/portal_url}/about/sponsorship">
-              <img src="badge-sponsor.png" alt="Plone Foundation Sponsor" /></a>
-              </span>
               </td>
               </tr>
               </table>
@@ -152,6 +148,12 @@
                                    alt provider/Title" />
             </a>
             <p tal:content="provider/Description"></p>
+
+              <span tal:condition="provider/isSponsor">
+              <a style="float:right" tal:attributes="href string:${here/portal_url}/support/about/sponsorship">
+              <img src="badge-sponsor.png" alt="Plone Foundation Sponsor" /></a>
+              </span>
+
             <div class="second-infos">
               <span tal:define="country provider/getCountry"
                     tal:condition="country">
