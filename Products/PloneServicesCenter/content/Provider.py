@@ -234,4 +234,13 @@ class Provider(BaseServicesContent):
     def availableServices(self):
         return aq_parent(self).Subject()
 
+    def Subject(self, **kw):
+        # BBB the deprecated "hostingProvider" field
+        value = self.getField('subject').get(self, **kw)
+        if (self.__dict__.get('hostingProvider') and
+            "Hosting provider" not in value):
+            value += ("Hosting provider",)
+        return value
+    getRawSubject = Subject
+
 registerType(Provider, 'PloneServicesCenter')

@@ -56,7 +56,7 @@ Providers have a number of checkboxes that set keywords.
     <ItemControl name='subject:list' type='checkbox' optionValue='Consulting' selected=False>
     >>> browser.getControl("Custom development")
     <ItemControl name='subject:list' type='checkbox' optionValue='Custom development' selected=False>
-    >>> browser.getControl('Hosting provider').selected = True
+    >>> browser.getControl('Custom development').selected = True
     >>> browser.getControl(name="subject_keywords:lines")
     Traceback (most recent call last):
     LookupError: name 'subject_keywords:lines'
@@ -77,6 +77,13 @@ Tolerate uppercase country codes.
 
     >>> z2.login(app.acl_users, 'admin')
     >>> provider.update(country=provider.getCountry().upper())
+
+If a provider had previously set the deprecated "hostingProvider"
+field, the value is added to the keywords/subject "Provided Services"
+field.
+
+    >>> provider.hostingProvider = True
+
     >>> import transaction
     >>> transaction.commit()
 
@@ -118,6 +125,13 @@ filter.
     >>> browser.getLink('United Kingdom')
     <Link text='United Kingdom'
     url='http://nohost/plone/support/providers/by-country/gb'>
+
+The provided services field shows the previously set hostingProvider
+field on the edit form.
+
+    >>> browser.getLink('Edit').click()
+    >>> browser.getControl("Hosting provider").selected
+    True
 
 The properties aren't purged.
 
