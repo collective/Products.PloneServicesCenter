@@ -161,7 +161,7 @@ class BaseServicesContent(ATCTContent):
         return DisplayList(providers)
 
     def getCountry(self, **kw):
-        # lowercase to tolerate uppercase values from plone.net
+        # BBB lowercase to tolerate uppercase values from plone.net
         value = self.getField('country').get(self, **kw)
         if isinstance(value, (str, unicode)):
             return value.lower()
