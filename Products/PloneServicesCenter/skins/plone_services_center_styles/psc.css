@@ -1,4 +1,7 @@
-/* @override http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey9716.css */
+/* @override 
+	http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey9716.css
+	http://plone.org/portal_css/Sunburst%20Theme/psc-cachekey4709.css
+*/
 
 .listing-provider,
 .listing-site { 
@@ -72,8 +75,7 @@
 
 .premium-sponsor .listing-title {
  background-color: #76AD17;
- padding: 0.5em 1em;
- margin: 0 0 0.25em 0;
+
 }
 
 .listing-title-table {
@@ -90,7 +92,6 @@
 
 .premium-sponsor .listing-title a {
  color: white !important;
- font-size: 1.5em;
 }
 
 
@@ -104,7 +105,7 @@
 
 .listing-title td {
  margin: 0;
- padding: 0 0 0.25em 0;
+ padding: 0.5em 1em;
  vertical-align: bottom;
 }
 

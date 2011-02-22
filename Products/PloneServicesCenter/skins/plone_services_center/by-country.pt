@@ -34,8 +34,6 @@
             style="white-space:nowrap"> 
 
         <div style="float:right; width : 17em;">
-          <div><strong i18n:translate="label_psc_country_cat">Country</strong></div>
-          <div style="float:left">
             <select name="country:list">  
               <option tal:attributes="selected not: country; value here_url" i18n:translate="label_country_www">Worldwide
               </option>
@@ -50,8 +48,6 @@
                    type="submit"
                    value="Filter"
                    i18n:attributes="value label_search;" />
-
-          </div>
         </div>
       </form>
 
