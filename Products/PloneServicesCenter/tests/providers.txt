@@ -37,9 +37,19 @@ each provider by setting the keywords/tags on the providers folder.
     <...
                 <dd>Changes saved.</dd>...
 
+Log in as a normal user.
+
+    >>> browser.getLink('Log out').click()
+    >>> browser.open(portal.support.providers.absolute_url())
+    >>> browser.getLink('Log in').click()
+    >>> browser.getControl('Login Name').value = 'test-user'
+    >>> browser.getControl('Password').value = 'secret'
+    >>> browser.getControl('Log in').click()
+    >>> print browser.contents
+    <...You are now logged in...
+
 Add a provider inside a provider folder.
 
-    >>> browser.open(portal.support.providers.absolute_url())
     >>> browser.getLink(url='createObject?type_name=Provider').click()
     >>> browser.getControl('Title').value = 'Foo Provider Title'
     >>> browser.getControl('Description').value = 'Foo Provider Description'

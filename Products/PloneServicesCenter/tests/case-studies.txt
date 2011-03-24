@@ -18,7 +18,7 @@ Open a browser and log in as a user who can add content.
     >>> browser.open(portal.absolute_url())
 
     >>> browser.getLink('Log in').click()
-    >>> browser.getControl('Login Name').value = 'admin'
+    >>> browser.getControl('Login Name').value = 'test-user'
     >>> browser.getControl('Password').value = 'secret'
     >>> browser.getControl('Log in').click()
 
