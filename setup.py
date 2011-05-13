@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 test_require = ['plone.app.testing']
 
@@ -25,4 +25,9 @@ setup(
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
+    license='GPL',
+    packages=find_packages(),
+    namespace_packages=['Products'],
+    include_package_data=True,
+    zip_safe=False,
 )
