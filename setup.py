@@ -5,7 +5,7 @@ test_require = ['plone.app.testing']
 
 setup(
     name='Products.PloneServicesCenter',
-    version='0.2.6',
+    version='0.2.7',
     description='A hub for information about the service options and deployments for Plone',
     long_description=open("README.txt").read() + '\n' +
         open(os.path.join("docs", "HISTORY.txt")).read(),
