@@ -2,6 +2,7 @@ from zope.interface import implements
 
 from Products.Archetypes import atapi
 
+from Products.PloneServicesCenter import PSCMessageFactory as _
 from Products.PloneServicesCenter.interfaces import ISiteUsingPlone
 from Products.PloneServicesCenter.content import Services
 
@@ -10,12 +11,10 @@ schema = Services.servicesSchema + atapi.Schema((
     atapi.ReferenceField('provider',
         widget=atapi.ReferenceWidget(
             checkbox_bound=0,
-            label="Provider",
-            label_msgid="label_psc_provider_cat",
-            description="""\
-Select a provider from the below listing for the Site that Use Plone.""",
-            description_msgid="help_siteuseplone_provider",
-            i18n_domain='ploneservicescenter',),
+            label=_(u"label_psc_provider_cat", default=u"Provider"),
+            description=_(u"help_siteuseplone_provider", default=u"Select a provider from the below listing for the Site that Use Plone."),
+            i18n_domain='ploneservicescenter',
+        ),
         relationship='providerToSiteUsingPlone',
         allowed_types=('Provider',),
         vocabulary_display_path_bound=-1,

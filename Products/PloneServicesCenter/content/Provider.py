@@ -4,8 +4,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import atapi
 from zope.interface import implements
 
-from Products.PloneServicesCenter.interfaces import IProvider
 from Products.PloneServicesCenter import PSCMessageFactory as _
+from Products.PloneServicesCenter.interfaces import IProvider
 from Products.PloneServicesCenter.content import Services
 
 
@@ -15,134 +15,104 @@ schema = Services.servicesSchema.copy() + atapi.Schema((
         write_permission='Manage portal',
         read_permission='Manage portal',
         widget=atapi.BooleanWidget(
-                     label="Good Company?",
-                     label_msgid="label_provider_goodcompany",
-                     description="""\
-Check if this flag if the company is considered to be a good-behaving,
-ethical company.""",
-                     description_msgid="help_provider_goodcompany",
-                     i18n_domain='ploneservicescenter',
-                     ),
-                 ),
+            label=_(u"label_provider_goodcompany", default=u"Good Company?"),
+            description=_(u"help_provider_goodcompany", default=u"Check if this flag if the company is considered to be a good-behaving, ethical company."),
+            i18n_domain='ploneservicescenter',
+        ),
+    ),
 
     atapi.ImageField('logo',
         max_size=(150, 75),
         widget=atapi.ImageWidget(
-                   label="Logo",
-                   label_msgid="label_psc_logo",
-                   description="""\
-Add a logo for the project (or organization/company) by clicking the
-'Browse' button. Max 150x75 pixels (will be resized if bigger).""",
-                   description_msgid="help_provider_logo",
-                   i18n_domain='ploneservicescenter',
-                          ),
+            label=_(u"label_psc_logo", default=u"Logo"),
+            description=_(u"help_provider_logo", default=u"Add a logo for the project (or organization/company) by clicking the 'Browse' button. Max 150x75 pixels (will be resized if bigger)."),
+            i18n_domain='ploneservicescenter',
         ),
+    ),
 
     atapi.TextField('body',
         allowable_content_types=('text/html',),
         default_content_type='text/html',
         default_output_type='text/html',
         widget=atapi.RichWidget(
-                   label="Detailed information",
-                   label_msgid="label_psc_detailed_info",
-                   description="""\
-Enter the details description about this provider.""",
-                   description_msgid="help_provider_body",
-                   i18n_domain='ploneservicescenter',
-                         ),
+            label=_(u"label_psc_detailed_info", default=u"Detailed information"),
+            description=_(u"help_provider_body", default=u"Enter the details description about this provider."),
+            i18n_domain='ploneservicescenter',
+        ),
         required=0,
         searchable=1,
-        ),
+    ),
 
     atapi.IntegerField('employees',
         widget=atapi.IntegerWidget(
-                        label="Confidential: Number of employees",
-                     label_msgid="label_provider_numemployees",
-                     description="""\
-Number of full-time employees (Used for statistical purposes only,
-will never be made public)""",
-                     description_msgid="help_provider_numemployees",
-                     i18n_domain='ploneservicescenter',
-                            ),
+            label=_(u"label_provider_numemployees", default=u"Confidential: Number of employees"),
+            description=_(u"help_provider_numemployees", default=u"Number of full-time employees (Used for statistical purposes only, will never be made public)"),
+            i18n_domain='ploneservicescenter',
+        ),
         validators=('isInt',),
         read_permission='Manage portal',
-        ),
+    ),
 
     atapi.IntegerField('annualRevenues',
         widget=atapi.IntegerWidget(
-                        label="Confidential: Annual revenues",
-                     label_msgid="label_provider_annualrevenues",
-                     description="""\
-Estimate in USD (Used for statistical purposes only, will never be
-made public)""",
-                     description_msgid="help_provider_annualrevenues",
-                     i18n_domain='ploneservicescenter',
-                            ),
+            label=_(u"label_provider_annualrevenues", default=u"Confidential: Annual revenues"),
+            description=_(u"help_provider_annualrevenues", default=u"Estimate in USD (Used for statistical purposes only, will never be made public)"),
+            i18n_domain='ploneservicescenter',
+        ),
         validators=('isInt',),
         read_permission='Manage portal',
-        ),
+    ),
 
     atapi.BooleanField('fullTimePlone',
         widget=atapi.BooleanWidget(
-                        label="Confidential: Full Time Plone",
-                     label_msgid="label_provider_fulltime",
-                     description="""\
-Are Plone services the majority of your income? (Used for statistical
-purposes only, will never be made public)""",
-                     description_msgid="help_provider_fulltime",
-                     i18n_domain='ploneservicescenter',
-                            ),
-        read_permission='Manage portal',
+            label=_(u"label_provider_fulltime", default=u"Confidential: Full Time Plone"),
+            description=_(u"help_provider_fulltime", default=u"Are Plone services the majority of your income? (Used for statistical purposes only, will never be made public)"),
+            i18n_domain='ploneservicescenter',
         ),
+        read_permission='Manage portal',
+    ),
 
     atapi.BooleanField('sponsor',
         accessor='isSponsor',
         write_permission='Review portal content',
         widget=atapi.BooleanWidget(
-                        label="Is this company a sponsor?",
-                     label_msgid="label_provider_companysponsor",
-                     description="",
-                     description_msgid="help_provider_companysponsor",
-                     i18n_domain='ploneservicescenter',
-                            ),
-        index=('FieldIndex:schema',),
+            label=_(u"label_provider_companysponsor", default=u"Is this company a sponsor?"),
+            description=_(u"help_provider_companysponsor", default=u""),
+            i18n_domain='ploneservicescenter',
         ),
+        index=('FieldIndex:schema',),
+    ),
 
     atapi.BooleanField('premium',
         accessor='isPremium',
         write_permission='Review portal content',
         widget=atapi.BooleanWidget(
-                        label="Is this company a premium sponsor?",
-                     label_msgid="label_provider_premiumsponsor",
-                     description="",
-                     description_msgid="help_provider_premiumsponsor",
-                     i18n_domain='ploneservicescenter',
-                            ),
-        index=('FieldIndex:schema',),
+            label=_(u"label_provider_premiumsponsor", default=u"Is this company a premium sponsor?"),
+            description=_(u"help_provider_premiumsponsor", default=u""),
+            i18n_domain='ploneservicescenter',
         ),
+        index=('FieldIndex:schema',),
+    ),
 
     atapi.StringField('companySize',
         vocabulary='getCompanySizes',
         widget=atapi.SelectionWidget(
-                           label="What is the size of the company?",
-                       label_msgid="label_provider_companysize",
-                       description="",
-                       description_msgid="help_provider_companysize",
-                       i18n_domain='ploneservicescenter',
-                              ),
+            label=_(u"label_provider_companysize", default=u"What is the size of the company?"),
+            description=_(u"help_provider_companysize", default=u""),
+            i18n_domain='ploneservicescenter',
         ),
+    ),
 
-
-
-    ))
+))
 
 schema['subject'].isMetadata = False
 schema['subject'].vocabulary = 'availableServices'
 schema.changeSchemataForField('subject', 'default')
 schema['subject'].widget = atapi.MultiSelectionWidget(
     format='checkbox',
-    label=u'Provided Services',
-    description=u'Select all the services the provider offers.')
+    label=_(u'Provided Services'),
+    description=_(u'Select all the services the provider offers.')
+)
 
 del schema['industry']
 del schema['rating']
