@@ -14,7 +14,7 @@
  <permission>Change portal events</permission>
 
  <state state_id="pending" title="Pending" i18n:attributes="title">
-  <description i18n:translate=""></description>
+  <description i18n:translate="">Waiting to be reviewed, not editable by the owner.</description>
   <exit-transition transition_id="hide"/>
   <exit-transition transition_id="publish"/>
   <exit-transition transition_id="reject"/>
@@ -44,7 +44,7 @@
  </state>
 
  <state state_id="published" title="Published" i18n:attributes="title">
-  <description i18n:translate=""></description>
+  <description i18n:translate="">Visible to everyone, not editable by the owner.</description>
   <exit-transition transition_id="reject"/>
   <exit-transition transition_id="retract"/>
   <permission-map name="Access contents information"
@@ -68,7 +68,7 @@
  </state>
 
  <state state_id="visible" title="Draft (not visible)" i18n:attributes="title">
-  <description i18n:translate=""></description>
+  <description i18n:translate="">This item is a Draft, but its not visible to everyone.</description>
   <exit-transition transition_id="publish"/>
   <exit-transition transition_id="submit"/>
   <permission-map name="Access contents information"
@@ -102,7 +102,7 @@
              new_state="published" trigger="USER"
              before_script="" after_script=""
              i18n:attributes="title">
-  <description i18n:translate=""></description>
+  <description i18n:translate="">Publishing the item makes it visible to other users.</description>
   <action url="%(content_url)s/content_publish_form"
           category="workflow" i18n:translate="">Publish</action>
   <guard>
@@ -115,7 +115,7 @@
              new_state="visible" trigger="USER"
              before_script="" after_script=""
              i18n:attributes="title">
-  <description i18n:translate=""></description>
+  <description i18n:translate="">Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published.</description>
   <action url="%(content_url)s/content_reject_form"
           category="workflow" i18n:translate="">Reject</action>
   <guard>
@@ -128,7 +128,7 @@
              new_state="visible" trigger="USER"
              before_script="" after_script=""
              i18n:attributes="title">
-  <description i18n:translate=""></description>
+  <description i18n:translate="">If you submitted the item by mistake or want to perform additional edits, this will take it back.</description>
   <action url="%(content_url)s/content_retract_form"
           category="workflow" i18n:translate="">Retract</action>
   <guard>
@@ -141,7 +141,7 @@
              new_state="pending" trigger="USER"
              before_script="" after_script=""
              i18n:attributes="title">
-  <description i18n:translate=""></description>
+  <description i18n:translate="">Puts your item in a review queue, so it can be published on the site.</description>
   <action url="%(content_url)s/content_submit_form"
           category="workflow" i18n:translate="">Submit</action>
   <guard>
