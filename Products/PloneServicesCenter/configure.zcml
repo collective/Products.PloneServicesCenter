@@ -8,20 +8,9 @@
     <five:registerPackage package="." initialize=".initialize" />
 -->
 
+    <i18n:registerTranslations directory="locales" />
+
     <include package=".browser" />
-
-    <genericsetup:registerProfile
-      name="default"
-      title="PloneServicesCenter / Default"
-      description="PloneServicesCenter default profile"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
-
-    <genericsetup:registerProfile
-      name="test"
-      title="PloneServicesCenter Plone.net / Test"
-      description="PloneServicesCenter Plone.net test profile"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
+    <include file="profiles.zcml" />
 
 </configure>
