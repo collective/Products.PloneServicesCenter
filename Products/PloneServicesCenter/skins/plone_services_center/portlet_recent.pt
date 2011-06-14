@@ -32,11 +32,11 @@
                            title obj/Description;
                            class string:$item_wf_state_class visualIconPadding tile">
             <tal:title content="obj/pretty_title_or_id">
-            Plone 2.1 released!
+            <tal:comment replace="nothing">Plone 2.1 released!</tal:comment>
             </tal:title>
             <span class="portletItemDetails"
-                  tal:content="python:toLocalizedTime(obj.ModificationDate)"
-                  >May 5</span>
+                  tal:content="python:toLocalizedTime(obj.ModificationDate)">
+              <tal:comment replace="nothing">May 5</tal:comment></span>
         </a>
         </div>
     </dd>

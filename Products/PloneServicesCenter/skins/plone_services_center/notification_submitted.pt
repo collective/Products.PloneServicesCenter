@@ -3,21 +3,22 @@
     i18n:domain="ploneservicescenter"
     tal:define="charset site_properties/default_charset | string:utf-8;
                 lt string:&lt;;gt string:&gt;;
-                dummy python:request.RESPONSE.setHeader('Content-Type','text/html;; charset=%s' % charset);"
-    i18n:translate="label_notification_submit_email">From: "<span tal:replace="portal/email_from_name" />" <span tal:replace="structure lt"/><span tal:replace="portal/email_from_address" /><span tal:replace="structure gt"/>
-Subject: [Plonet.net] Item has been submitted: "<span tal:replace="here/title"/>"
+                dummy python:request.RESPONSE.setHeader('Content-Type','text/html;; charset=%s' % charset);">
+From: "<span tal:replace="portal/email_from_name" />" <span tal:replace="structure lt"/><span tal:replace="portal/email_from_address" /><span tal:replace="structure gt"/>
+Subject: <span i18n:translate="">[Plonet.net] Item has been submitted: '<span tal:replace="here/title" i18n:name="title_item_submitted" />'</span>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 
+<span i18n:translate="">
     Hello,
 
-  Item "<span tal:replace="here/title"/>" is ready for review.
+  Item '<span tal:replace="here/title" i18n:name="title_item_submitted" />' is ready for review.
 
-  <span tal:replace="here/absolute_url"/>
+  <span tal:replace="here/absolute_url" i18n:name="title_item_submitted_absolute_url" />
 
     Regards,
-
+</span>
 -- 
 <span tal:replace="portal/title"/>
 </metal:define>

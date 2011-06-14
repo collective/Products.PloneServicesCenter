@@ -1,9 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="ploneservicescenter">
+
 <body metal:fill-slot="main">
 
 <metal:main metal:define-macro="body"
@@ -12,7 +14,7 @@
 
 <tal:if tal:condition="python: context.portal_workflow.getInfoFor(context, 'review_state') != 'published'">
   <dl class="portalMessage">
-      <dt>Info</dt>
+      <dt i18n:translate="">Info</dt>
       <dd>
         <a href="content-guidelines"
            tal:attributes="href string:${portal_url}/content-guidelines"
@@ -20,15 +22,15 @@
           Please consult these guidelines before submitting your content
         </a>
       </dd>
-  <dl>
+  </dl>
 </tal:if>
 
 <div class="provider-meta">
 <div class="provider-sponsor" tal:condition="here/isSponsor">
   <a tal:condition="not:here/isPremium" tal:attributes="href string:${here/portal_url}/about/sponsorship">
-  <img src="badge-sponsor.png" alt="Plone Foundation Sponsor" /></a>
+  <img src="badge-sponsor.png" alt="Plone Foundation Sponsor" i18n:attributes="alt" /></a>
   <a tal:condition="here/isPremium" tal:attributes="href string:${here/portal_url}/about/sponsorship">
-  <img src="badge-premier.png" alt="Plone Foundation Premium Sponsor" /></a>
+  <img src="badge-premier.png" alt="Plone Foundation Premium Sponsor" i18n:attributes="alt" /></a>
 </div>
 
 <div class="provider-table">
@@ -63,7 +65,7 @@
             <a href=""
                tal:content="python:here.Vocabulary('country')[0].getValue(country)"
                tal:attributes="href string:${portal_url}/support/providers/by-country/${country}">
-            Country
+            <tal:comment replace="nothing">Country</tal:comment>
             </a>
         </td>
     </tr>
@@ -105,7 +107,7 @@
         </span>:
         <a tal:content="casestudy/Title"
            tal:attributes="href casestudy/absolute_url">
-           Title
+           <tal:comment replace="nothing">Title</tal:comment>
         </a>
         <tal:country define="country casestudy/getCountry"
                      condition="country">
@@ -113,7 +115,7 @@
         </tal:country>
     </dt>
     <dd tal:content="casestudy/Description">
-        Description
+        <tal:comment replace="nothing">Description</tal:comment>
     </dd>
   </tal:studies>
 </dl>
@@ -126,7 +128,7 @@
     <dt>
         <a tal:content="site/Title"
            tal:attributes="href site/absolute_url">
-           Title
+           <tal:comment replace="nothing">Title</tal:comment>
         </a>
         <tal:country define="country site/getCountry"
                      condition="country">
@@ -134,7 +136,7 @@
         </tal:country>
     </dt>
     <dd tal:content="site/Description">
-        Description
+        <tal:comment replace="nothing">Description</tal:comment>
     </dd>
   </tal:site>
 </dl>
@@ -157,7 +159,7 @@
 </div>
 </tal:nosites>
 
-<p class="discreet">
+<p class="discreet" i18n:translate="">
     Disclaimer: 
     While the Plone Foundation performs a rudimentary background check on the
     content contributed to this site to make sure it is legitimate,

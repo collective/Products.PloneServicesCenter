@@ -55,7 +55,7 @@
 	    <h2>
 	      <a tal:attributes="href brain/getURL"
 		 tal:content="brain/Title">
-		Title
+		<tal:comment replace="nothing">Title</tal:comment>
 	      </a>
 
 	    </h2>
@@ -70,7 +70,7 @@
 	    </a>
 
 	    <p tal:content="brain/Description">
-	      Description
+	      <tal:comment replace="nothing">Description</tal:comment>
 	    </p>
 
 	    <div class="first-infos">
@@ -86,7 +86,7 @@
 	      </span>
 	      <tal:if tal:condition="casestudy/canSeeProvider">
 		<span tal:define="provider casestudy/getProvider">
-		  <strong i18n:translate="label_psc_provider">Case study by:</strong>
+		  <strong i18n:translate="label_psc_casestudy_provider_by">Case study by:</strong>
 		  <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
 		</span>
 	      </tal:if>
@@ -99,7 +99,7 @@
 	    <h3>
 	      <a tal:attributes="href brain/getURL"
 		 tal:content="brain/Title">
-		Site title
+		<tal:comment replace="nothing">Site title</tal:comment>
 	      </a>
 	    </h3>
 	    
@@ -126,7 +126,7 @@
 	      </span>
 	      <tal:if tal:condition="casestudy/canSeeProvider">
 		<span tal:define="provider casestudy/getProvider">
-		  <strong i18n:translate="label_psc_provider">Case study by:</strong>
+		  <strong i18n:translate="label_psc_casestudy_provider_by">Case study by:</strong>
 		  <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
 		</span>
 	      </tal:if>
@@ -154,14 +154,14 @@
 	      <tal:industry condition="industry">
 	      <dt i18n:translate="label_psc_industry_cat">Industry</dt>
 	      <dd tal:content="structure industries">
-		industry
+		<tal:comment replace="nothing">industry</tal:comment>
 	      </dd>
 	      </tal:industry>
 	    </dl>
 	    </tal:infos>
 
 	    <p class="discreet" tal:content="brain/Description">
-	      Description
+	      <tal:comment replace="nothing">Description</tal:comment>
 	    </p>
 	  </div>
         </div>

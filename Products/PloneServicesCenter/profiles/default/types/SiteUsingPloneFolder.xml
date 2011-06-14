@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <object name="SiteUsingPloneFolder" meta_type="Factory-based Type Information"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Site Using Plone Folder</property>
- <property name="description">Folder for sites using Plone.</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
+
+ <property name="title" i18n:translate="">Site Using Plone Folder</property>
+ <property name="description" i18n:translate="">Folder for sites using Plone.</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">SiteUsingPloneFolder</property>
  <property name="product">PloneServicesCenter</property>

@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <object name="CaseStudyFolder" meta_type="Factory-based Type Information"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Case Study Folder</property>
- <property name="description">Folder for case studies.</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
+
+ <property name="title" i18n:translate="">Case Study Folder</property>
+ <property name="description" i18n:translate="">Folder for case studies.</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">CaseStudyFolder</property>
  <property name="product">PloneServicesCenter</property>

@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <object name="Buzz"
    meta_type="Factory-based Type Information with dynamic views"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Media Coverage</property>
- <property name="description">A link to media coverage of Plone.</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
+
+ <property name="title" i18n:translate="">Media Coverage</property>
+ <property name="description" i18n:translate="">A link to media coverage of Plone.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">Buzz</property>
  <property name="product">PloneServicesCenter</property>

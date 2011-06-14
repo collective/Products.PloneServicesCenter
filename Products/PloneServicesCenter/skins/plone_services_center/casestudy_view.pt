@@ -41,7 +41,7 @@
         <th i18n:translate="label_psc_industry_cat">Industry</th>
         <td tal:define="country here/getIndustry"
             tal:content="structure python: here.makeIndustryLinks(listing_url, here)">
-            Industry
+            <tal:comment replace="nothing">Industry</tal:comment>
         </td>
     </tr>
     <tr>
@@ -53,7 +53,7 @@
     </tr>
 
     <tr tal:condition="here/getProvider">
-      <th i18n:translate="label_psc_provided">Case study written by</th>
+      <th i18n:translate="label_psc_casestudy_provided_by">Case study written by</th>
       <td><a tal:content="here/getProvider" 
              tal:attributes="href python: here.getProvider().absolute_url()"/></td>
     </tr>

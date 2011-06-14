@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <object name="Provider"
    meta_type="Factory-based Type Information with dynamic views"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Provider</property>
- <property
-    name="description">A company or organization that offers Plone services.</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
+
+ <property name="title" i18n:translate="">Provider</property>
+ <property name="description" i18n:translate="">A company or organization that offers Plone services.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">Provider</property>
  <property name="product">PloneServicesCenter</property>

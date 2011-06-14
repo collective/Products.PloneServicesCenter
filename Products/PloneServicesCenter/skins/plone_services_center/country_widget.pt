@@ -1,4 +1,4 @@
-i<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
@@ -32,7 +32,7 @@ i<html xmlns="http://www.w3.org/1999/xhtml"
                     tal:repeat="country python:region[1].items()"
                     tal:attributes="value python:country[0];
                                     selected python:country[0] in selection and 'selected' or None"
-                    tal:content="python:country[1]">Andorra</option>
+                    tal:content="python:country[1]"><tal:comment replace="nothing">Andorra</tal:comment></option>
           </optgroup>
         </select>
 

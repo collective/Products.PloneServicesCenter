@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <object name="CaseStudy"
    meta_type="Factory-based Type Information with dynamic views"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Case study</property>
- <property
-    name="description">Shows off a Plone site or project built for a customer.</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
+
+ <property name="title" i18n:translate="">Case study</property>
+ <property name="description" i18n:translate="">Shows off a Plone site or project built for a customer.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">CaseStudy</property>
  <property name="product">PloneServicesCenter</property>

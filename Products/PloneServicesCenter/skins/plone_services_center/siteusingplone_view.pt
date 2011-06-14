@@ -16,8 +16,7 @@
   </div>
 </tal:if>
 
-<div style="float: right; margin: 0 0 1em 1em; padding: 1em;text-align: center; border: 1px solid #ccc;"
-     i18n:translate="label_siteuseplone_openwindow">
+<div style="float: right; margin: 0 0 1em 1em; padding: 1em;text-align: center; border: 1px solid #ccc;">
     <a href=""
        style="border: 1px solid #ccc; display: block;"
        target="_blank"
@@ -28,13 +27,13 @@
     <a href=""
        class="discreet link-plain"
        target="_blank"
-       tal:attributes="href here/getUrl">Click to visit the site</a><br />
-       (opens in new window)
+       tal:attributes="href here/getUrl" i18n:translate="label_siteuseplone_openwindow">Click to visit the site</a><br />
+       <span i18n:translate="label_siteuseplone_open_new_window">(opens in new window)</span>
 </div>
 
 <dl tal:define="listing_url python:here.getParentNode().absolute_url();">
   <tal:provider condition="here/canSeeProvider">
-    <dt i18n:translate="label_psc_provided">Provided by</dt>
+    <dt i18n:translate="label_psc_provided_by">Provided by</dt>
     <dd><a tal:content="here/getProvider" 
            tal:attributes="href python: here.getProvider().absolute_url()"/></dd>
   </tal:provider>

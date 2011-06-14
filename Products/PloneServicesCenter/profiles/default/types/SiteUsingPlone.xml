@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <object name="SiteUsingPlone"
    meta_type="Factory-based Type Information with dynamic views"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Site using Plone</property>
- <property name="description">Site using Plone.
-  
-      Not a full case study, but just a description and URL.
-      </property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone">
+
+ <property name="title" i18n:translate="">Site using Plone</property>
+ <property name="description" i18n:translate="">Site using Plone. Not a full case study, but just a description and URL.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">SiteUsingPlone</property>
  <property name="product">PloneServicesCenter</property>
