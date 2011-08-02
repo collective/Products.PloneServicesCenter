@@ -1,0 +1,210 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ploneservicescenter">
+
+  <body>
+
+
+    <div metal:fill-slot="main" tal:define="providers view/getProviders;
+                                            casestudies view/getCaseStudies;
+                                            sites view/getSitesUsingPlone;">
+
+      <h1 i18n:translate="label_country_plone_providers">Plone in <span tal:replace="view/country_name">Country</span></h1>
+      <div tal:condition="casestudies" tal:attributes="style view/section_style">
+      <h2>Case Studies</h2>
+      
+  <div style="padding:4px;" tal:repeat="brain casestudies">
+
+          <div tal:define="base_url string:${here/absolute_url}/${template/getId};
+                           casestudy brain/getObject">
+
+    <div class="listing-site level1">
+
+      <h2>
+        <a tal:attributes="href brain/getURL"
+     tal:content="brain/Title">
+    <tal:comment replace="nothing">Title</tal:comment>
+        </a>
+
+      </h2>
+
+      <a tal:attributes="href brain/getURL"
+               tal:condition="casestudy/getLogo"
+         class="listing-site-image-link">
+        <img alt=""
+       tal:attributes="src string:${brain/getURL}/logo_thumb;
+           title brain/Title;
+           alt brain/Title" />
+      </a>
+
+      <p tal:content="brain/Description">
+        <tal:comment replace="nothing">Description</tal:comment>
+      </p>
+
+      <div class="first-infos" tal:condition="casestudy/canSeeProvider">
+
+    <span tal:define="provider casestudy/getProvider">
+      <strong i18n:translate="label_psc_casestudy_provider_by">Case study by:</strong>
+      <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
+    </span>
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+      <p><a href="#">We have <span tal:replace="view/number_case_studies" /> case studies from <span tal:replace="view/country_name" />, see all</a>
+        </p>
+
+      </div>
+      <div tal:condition="sites" tal:attributes="style view/section_style">
+      <h2>Sites</h2>
+      <div style="padding:4px;" tal:repeat="brain sites">
+
+          <div tal:define="base_url string:${here/absolute_url}/${template/getId};">
+
+          <div class="listing-site level1">
+
+            <h2>
+              <a tal:attributes="href brain/getURL"
+                 tal:content="brain/Title">
+                <tal:comment replace="nothing">Title</tal:comment>
+              </a>
+            </h2>
+
+            <a tal:attributes="href brain/getURL"
+               class="listing-site-image-link">
+              <img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwxmax=200&stwymax=150&stwaccesskeyid=21806ba9db284d3&stwurl=http://plone.org"
+                   tal:attributes="src string:http://images.shrinktheweb.com/xino.php?stwembed=1&stwxmax=200&stwymax=150&stwaccesskeyid=21806ba9db284d3&stwurl=${brain/getUrl};
+                                   title brain/Title;
+                                   alt brain/Title" />
+            </a>
+
+            <p tal:content="brain/Description">
+              <tal:comment replace="nothing">Description</tal:comment>
+            </p>
+
+            <div class="first-infos" tal:condition="site/canSeeProvider"
+                 tal:define="site brain/getObject">
+              <tal:if >
+                <span tal:define="provider site/getProvider">
+                  <strong i18n:translate="label_psc_provider">Provider:</strong>
+                  <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
+                </span>
+              </tal:if>
+            </div>
+          </div>
+
+          
+
+        </div>
+        </div>
+        <p><a href="#">We have <span tal:replace="view/number_sites" /> sites on file from <span tal:replace="view/country_name" />, see all sites</a>
+        </p>
+        <p><a href="#">Are you not listed? Register your site today!</a></p>
+
+        
+      </div>
+      <div tal:condition="providers" tal:attributes="style view/section_style">
+      <h2>Providers</h2>
+      <div style="padding:4px;" tal:repeat="provider providers">
+
+        <div tal:define="pv provider/getObject">
+
+          <div class="listing-provider"
+               tal:condition="provider/isPremium"
+               tal:attributes="class pv/getCssClasses">
+            
+            <div class="listing-title">
+            <table class="listing-title-table">
+              <tr> 
+              <td>
+              <p><a tal:attributes="href provider/getURL"
+                    tal:content="provider/Title"> 
+                <tal:comment replace="nothing">Site title</tal:comment>
+              </a></p>
+              </td>
+              <td>
+              </td>
+              </tr>
+              </table>
+             </div> <!-- listing title-->
+
+
+            <div class="provider-body">            
+            <a tal:attributes="href provider/getURL"
+               tal:condition="pv/getLogo"
+               class="listing-provider-image-link">
+              <img alt="" src="" i18n:attributes="alt"
+                   tal:attributes="src string:${provider/getURL}/logo;
+                                   title provider/Title;
+                                   alt provider/Title" />
+            </a>
+            <p tal:content="provider/Description"></p>
+              <a style="float:right" tal:attributes="href string:${here/portal_url}/support/about/sponsorship">
+              <img src="badge-premier.png" alt="Plone Foundation Premium Sponsor" i18n:attributes="alt" /></a>
+              <div class="second-infos">&nbsp;
+            </div> <!-- second infos-->
+            </div> <!-- provider body-->
+          
+          </div> <!-- listing-provider -->
+        
+        
+
+          <div class="listing-provider"
+               tal:attributes="class pv/getCssClasses"
+               tal:condition="not:provider/isPremium">
+            
+            <div class="listing-title">
+            <table class="listing-title-table">
+              <tr> 
+              <td>
+              <p><a tal:attributes="href provider/getURL"
+                 tal:content="provider/Title"> 
+                <tal:comment replace="nothing">Site title</tal:comment>
+              </a></p>
+              </td>
+              <td>
+              </td>
+              </tr>
+              </table>
+             </div> <!-- listing title -->
+
+
+            <div class="provider-body">            
+            <a tal:attributes="href provider/getURL"
+               tal:condition="pv/getLogo"
+               class="listing-provider-image-link">
+              <img alt="" src="" i18n:attributes="alt"
+                   tal:attributes="src string:${provider/getURL}/logo;
+                                   title provider/Title;
+                                   alt provider/Title" />
+            </a>
+            <p tal:content="provider/Description"></p>
+
+              <span tal:condition="provider/isSponsor">
+              <a style="float:right" tal:attributes="href string:${here/portal_url}/support/about/sponsorship">
+              <img src="badge-sponsor.png" alt="Plone Foundation Sponsor" i18n:attributes="alt" /></a>
+              </span>
+
+            <div class="second-infos">&nbsp;
+            </div> <!-- second infos-->
+            </div> <!-- provider-body -->
+          </div> <!-- listing provider -->
+        </div>
+        
+        </div>
+      <p><a href="#">We have <span tal:replace="view/number_providers" /> providers on file from <span tal:replace="view/country_name" />, see them all</a>
+        </p>
+        <p><a href="#">Are you not listed? Register your comapany today!</a></p>
+
+      </div><!-- 33% -->
+    </div>
+
+  </body>
+
+</html>

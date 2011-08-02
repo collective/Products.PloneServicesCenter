@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ploneservicescenter">
+
+  <body>
+
+
+    <div metal:fill-slot="main" tal:define="countries view/getUniqueCountriesNames">
+
+      <h2 i18n:translate="label_country_plone_providers">Plone In Countries Around The Wrold</h2>
+
+      <ul  tal:repeat="country countries">
+        <li><a href="#" tal:attributes="href string:in/$country" tal:content="python:countries[country][1]">country</a></li>
+      </ul>
+      
+
+    </div>
+
+  </body>
+
+</html>
