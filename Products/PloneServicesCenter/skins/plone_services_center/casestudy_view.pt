@@ -25,7 +25,9 @@
         <td colspan="2" style="text-align: center">
             <a href=""
                tal:attributes="href here/getUrl">
-              <img tal:replace="structure logo" /></a>
+              <img 
+                  tal:attributes="src python:'%s_thumb' % here.getLogo().absolute_url();
+                                  title here/Title" /></a>
         </td>
     </tr>
     <tr>
@@ -41,7 +43,7 @@
         <th i18n:translate="label_psc_industry_cat">Industry</th>
         <td tal:define="country here/getIndustry"
             tal:content="structure python: here.makeIndustryLinks(listing_url, here)">
-            <tal:comment replace="nothing">Industry</tal:comment>
+            Industry
         </td>
     </tr>
     <tr>
@@ -53,7 +55,7 @@
     </tr>
 
     <tr tal:condition="here/getProvider">
-      <th i18n:translate="label_psc_casestudy_provided_by">Case study written by</th>
+      <th i18n:translate="label_psc_provided">Case study written by</th>
       <td><a tal:content="here/getProvider" 
              tal:attributes="href python: here.getProvider().absolute_url()"/></td>
     </tr>
