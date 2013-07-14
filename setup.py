@@ -11,7 +11,7 @@ setup(
         open(os.path.join("docs", "HISTORY.txt")).read(),
     maintainer='Alex Clark',
     maintainer_email='aclark@aclark.net',
-    url='http://svn.plone.org/svn/collective/Products.PloneServicesCenter/trunk',
+    url='https://github.com/collective/Products.PloneServicesCenter',
     install_requires=[
         'Plone',
         'Products.ArchAddOn',
