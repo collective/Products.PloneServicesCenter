@@ -15,6 +15,7 @@ setup(
     install_requires=[
         'Plone',
         'Products.ArchAddOn',
+        'setuptools',
         ],
     test_require=test_require,
     extras_require={'test': test_require},
