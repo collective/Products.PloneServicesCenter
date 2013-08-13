@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-test_require = ['plone.app.testing']
+tests_require = ['plone.app.testing']
 
 setup(
     name='Products.PloneServicesCenter',
@@ -17,8 +17,8 @@ setup(
         'Products.ArchAddOn',
         'setuptools',
         ],
-    test_require=test_require,
-    extras_require={'test': test_require},
+    tests_require=tests_require,
+    extras_require={'test': tests_require},
     classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
