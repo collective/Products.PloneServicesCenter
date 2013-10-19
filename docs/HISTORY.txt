@@ -5,6 +5,12 @@ Changelog
 0.2.8 - (unreleased)
 ---------------------
 
+* Updated classifiers list for package
+  [macagua]
+
+* Add document_icon.gif and folder_icon.gif images files as Archetypes icons.
+  [macagua]
+
 * Fix casestudy_view
   [ericof]
 
