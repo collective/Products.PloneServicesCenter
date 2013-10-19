@@ -19,11 +19,23 @@ setup(
         ],
     tests_require=tests_require,
     extras_require={'test': tests_require},
+    # Get more strings from
+    # http://pypi.python.org/pypi?:action=list_classifiers
     classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Web Environment",
         "Framework :: Plone",
+        "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3",
         "Framework :: Zope2",
         "Framework :: Zope3",
+        "Intended Audience :: End Users/Desktop",
+        "License :: OSI Approved :: GNU General Public License (GPL)"
+        "Operating System :: OS Independent",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Topic :: Internet :: WWW/HTTP",
+        "Topic :: Office/Business",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     license='GPL',
