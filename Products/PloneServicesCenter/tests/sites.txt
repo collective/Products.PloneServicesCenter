@@ -91,3 +91,51 @@ filter.
     >>> browser.getLink('United Kingdom')
     <Link text='United Kingdom'
     url='http://nohost/plone/support/sites?countries:list=gb'>
+
+
+Add a providers inside a provider folder.
+
+    >>> browser.open(portal.support.providers.absolute_url())
+    >>> browser.getLink(url='createObject?type_name=Provider').click()
+    >>> browser.getControl('Title').value = 'Provider 1'
+    >>> browser.getControl('Description').value = 'Provider 1 Description'
+    >>> browser.getControl('United Kingdom').selected = True
+    >>> browser.getControl('URL').value = 'http://provider1.com'
+    >>> browser.getControl('Save').click()
+    >>> portal.support.providers.contentValues()
+    [<Provider at /plone/support/providers/provider-1>]
+
+    >>> browser.open(portal.support.providers.absolute_url())
+    >>> browser.getLink(url='createObject?type_name=Provider').click()
+    >>> browser.getControl('Title').value = 'Provider 2'
+    >>> browser.getControl('Description').value = 'Provider 2 Description'
+    >>> browser.getControl('United Kingdom').selected = True
+    >>> browser.getControl('URL').value = 'http://provider2.com'
+    >>> browser.getControl('Save').click()
+    >>> portal.support.providers.contentValues()
+    [<Provider at /plone/support/providers/provider-1>, <Provider at /plone/support/providers/provider-2>]
+
+
+    >>> site = portal.support.sites['foo-site-using-plone-title']
+    >>> browser.open(site.absolute_url() + '/edit')
+    >>> browser.url
+    'http://nohost/plone/support/sites/foo-site-using-plone-title/edit'
+    >>> providerControl = browser.getControl(name='provider:list')
+    >>> providerControl.value
+    []
+    >>> providerControl.value = providerControl.options
+    >>> len(providerControl.value)
+    2
+    >>> browser.getControl('Save').click()
+    >>> print browser.contents
+    <...Provided by</dt>...
+    >>> prov1 = portal.support.providers['provider-1']
+    >>> prov2 = portal.support.providers['provider-2']
+    >>> prov1.Title() in browser.contents
+    True
+    >>> prov1.absolute_url() in browser.contents
+    True
+    >>> prov2.Title() in browser.contents
+    True
+    >>> prov2.absolute_url() in browser.contents
+    True
