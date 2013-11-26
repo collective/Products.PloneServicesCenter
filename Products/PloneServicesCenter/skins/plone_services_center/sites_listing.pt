@@ -87,7 +87,7 @@
                 <span tal:replace="structure industries" />
               </span>
               <tal:if tal:condition="site/canSeeProvider">
-                <span tal:define="provider site/getProvider">
+                <span tal:repeat="provider site/getProvider">
                   <strong i18n:translate="label_psc_provider">Provider:</strong>
                   <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
                 </span>
@@ -126,7 +126,7 @@
                 <span tal:replace="structure industries" />
               </span>
               <tal:if tal:condition="site/canSeeProvider">
-                <span tal:define="provider site/getProvider">
+                <span tal:repeat="provider site/getProvider">
                   <strong i18n:translate="label_psc_provider">Provider:</strong>
                   <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
                 </span>
