@@ -34,8 +34,11 @@
 <dl tal:define="listing_url python:here.getParentNode().absolute_url();">
   <tal:provider condition="here/canSeeProvider">
     <dt i18n:translate="label_psc_provided_by">Provided by</dt>
-    <dd><a tal:content="here/getProvider" 
-           tal:attributes="href python: here.getProvider().absolute_url()"/></dd>
+    <dd><ul>
+      <li tal:repeat="provider here/getProviders">
+        <a tal:content="provider/Title"
+           tal:attributes="href python: provider.absolute_url()"/></li>
+    </ul></dd>
   </tal:provider>
   <tal:industry condition="here/getIndustry">
     <dt i18n:translate="label_psc_industry_cat">Industry</dt>
@@ -47,7 +50,7 @@
       <a tal:content="python:here.Vocabulary('country')[0].getValue(country)"
          tal:attributes="href string:${listing_url}?countries:list=${country}" />
     </dd>
-  </tal:country>      
+  </tal:country>
 </dl>
 
 <div class="visualClear"></div>

@@ -47,7 +47,7 @@
 
       <div class="first-infos" tal:condition="casestudy/canSeeProvider">
 
-    <span tal:define="provider casestudy/getProvider">
+    <span tal:repeat="provider casestudy/getProvider">
       <strong i18n:translate="label_psc_casestudy_provider_by">Case study by:</strong>
       <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
     </span>
@@ -91,7 +91,7 @@
             <div class="first-infos" tal:condition="site/canSeeProvider"
                  tal:define="site brain/getObject">
               <tal:if >
-                <span tal:define="provider site/getProvider">
+                <span tal:repeat="provider site/getProvider">
                   <strong i18n:translate="label_psc_provider">Provider:</strong>
                   <tal:display-provider metal:use-macro="here/psc_macros/macros/display-provider"/>
                 </span>
