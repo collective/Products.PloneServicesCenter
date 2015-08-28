@@ -14,7 +14,7 @@ Requires
 --------
 
 * Plone 4+
-* ArchAddOn, https://svn.plone.org/svn/collective/ArchAddOn
+* ArchAddOn, https://github.com/collective/Products.ArchAddOn
 
 Recommended
 -----------
