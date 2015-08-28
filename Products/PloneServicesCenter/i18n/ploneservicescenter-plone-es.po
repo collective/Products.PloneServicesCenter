@@ -1,17 +1,18 @@
 # translation of PloneServicesCenter-plone.po to Spanish
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2008, 2029, 2010, 2011.
-#
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2008, 2029, 2010, 2011, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneServicesCenter 0.2.7\n"
 "POT-Creation-Date: 2011-06-14 14:31+0000\n"
-"PO-Revision-Date: 2011-06-14 12:22-0400\n"
+"PO-Revision-Date: 2014-07-01 05:09-0430\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Language-Code: es\n"
 "Language-Name: Spanish\n"
 "Preferred-Encodings: utf-8 latin1\n"
@@ -109,6 +110,8 @@ msgstr "Carpeta para sitios que usan Plone."
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "If you submitted the item by mistake or want to perform additional edits, this will take it back."
 msgstr ""
+"Si envió el elemento por error, o desea realizar ediciones adicionales, esto "
+"lo retirará."
 
 #: ../profiles/default/workflows/plonenet_folder_workflow/definition.xml
 msgid "Make private"
@@ -125,7 +128,7 @@ msgstr "Hacer visible"
 
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Manager suspends content"
-msgstr "Los administradores suspenden contenidos."
+msgstr "Los administradores suspenden contenidos"
 
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Managers can suspend this item content."
@@ -138,16 +141,16 @@ msgstr "Coberturas en medios de comunicación"
 
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Member can makes this item content will be visible"
-msgstr "Los miembros puede hacer a este elemento seá visible."
+msgstr "Los miembros puede hacer a este elemento sea visible"
 
 #: ../profiles/default/workflows/plonenet_folder_workflow/definition.xml
 msgid "Member makes content private"
-msgstr "Los miembros hacen que el contenido seá privado."
+msgstr "Los miembros hacen que el contenido sea privado"
 
 #: ../profiles/default/workflows/plonenet_folder_workflow/definition.xml
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Member makes content visible"
-msgstr "Los miembros hacen que el contenido seá visible."
+msgstr "Los miembros hacen que el contenido sea visible"
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
@@ -163,7 +166,7 @@ msgstr "Los miembros rechazan su envio"
 
 #: ../profiles/default/workflows/plonenet_folder_workflow/definition.xml
 msgid "Members can publish the items to reviewer users for his approbation"
-msgstr "Los miembros pueden publicar elementos para ser revisado por revisores  "
+msgstr "Los miembros pueden publicar elementos para ser revisado por revisores"
 
 #: ../profiles/default/workflows/plonenet_folder_workflow/definition.xml
 msgid "Members can retract his submission"
@@ -177,7 +180,7 @@ msgstr "Pendiente"
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 msgid "Plone.net content workflow"
-msgstr "flujo de trabajo de contenidos para Plone.net"
+msgstr "Flujo de trabajo de contenidos para Plone.net"
 
 #: ../profiles/default/workflows/plonenet_folder_workflow/definition.xml
 msgid "Private"
@@ -220,13 +223,15 @@ msgstr "Publicado"
 #: ../profiles/default/workflows/public_workflow/definition.xml
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Publishing the item makes it visible to other users."
-msgstr ""
+msgstr "Al publicar el elemento será visible para otros usuarios."
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Puts your item in a review queue, so it can be published on the site."
 msgstr ""
+"Pone su elemento en una cola de revisión, de forma que pueda ser publicado "
+"en el sitio."
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
@@ -244,19 +249,22 @@ msgstr "Retractar"
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
 msgid "Reviewer publishes content"
-msgstr ""
+msgstr "El revisor publica contenido"
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Reviewer rejects submission"
-msgstr ""
+msgstr "El revisor rechazan el envió"
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published."
 msgstr ""
+"Al retirar el elemento lo devolverá al autor original, en lugar de "
+"publicarlo. Sería deseable que incluyera una razón por la cual no ha sido "
+"publicado."
 
 #. Default: "Services"
 #: ../profiles/default/types/Services.xml
@@ -307,7 +315,7 @@ msgstr "Suspendido"
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 msgid "This item is a Draft, but its not visible to everyone."
-msgstr ""
+msgstr "Este elemento es un borrador, pero no es visible para todos."
 
 #: ../profiles/default/workflows/plonenet_folder_workflow/definition.xml
 msgid "This item was Published"
@@ -320,18 +328,18 @@ msgstr "Este elemento fue suspendido."
 #: ../profiles/default/workflows/public_workflow/definition.xml
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Visible to everyone, but not approved by the reviewers."
-msgstr ""
+msgstr "Visible para todo el mundo, pero no aprobado por los revisores."
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
 msgid "Visible to everyone, not editable by the owner."
-msgstr ""
+msgstr "Visible para todo el mundo, no editable por su propietario."
 
 #: ../profiles/default/workflows/plonenet_workflow/definition.xml
 #: ../profiles/default/workflows/public_workflow/definition.xml
 #: ../profiles/default/workflows/supporter_workflow/definition.xml
 msgid "Waiting to be reviewed, not editable by the owner."
-msgstr ""
+msgstr "Esperando a ser revisado, no editable por su propietario."
 
 #. Default: "All recent changes…"
 #: ../skins/plone_services_center/portlet_recent.pt:52
@@ -351,10 +359,9 @@ msgstr "${box_recent_changes_rss_img} <span>Subscribir a actualizaciones</span>"
 #. Default: "No items changed yet."
 #: ../skins/plone_services_center/portlet_recent.pt:45
 msgid "box_recent_no_items"
-msgstr "No hay elementos cambiados"
+msgstr "No hay elementos cambiados."
 
 #. Default: "RSS Feed"
 #: ../skins/plone_services_center/portlet_rss.pt:12
 msgid "portlet_rss_title"
 msgstr "Canal RSS"
-
