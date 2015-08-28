@@ -1,9 +1,11 @@
-from zope.interface import implements
+# -*- coding: utf-8 -*-
 
 from Products.Archetypes import atapi
 
 from Products.PloneServicesCenter.content import ServicesFolder
 from Products.PloneServicesCenter.interfaces import IProviderFolder
+
+from zope.interface import implements
 
 
 class ProviderFolder(ServicesFolder.BaseServicesFolder):
@@ -19,6 +21,6 @@ class ProviderFolder(ServicesFolder.BaseServicesFolder):
             'action': 'string:${object_url}/by-country',
             'permissions': ('View',)
         },
-        )
+    )
 
 atapi.registerType(ProviderFolder, 'PloneServicesCenter')

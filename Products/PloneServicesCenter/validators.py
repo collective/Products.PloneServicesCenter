@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+
+# from Products.PloneServicesCenter import PSCMessageFactory as _
+from Products.validation.interfaces.IValidator import IValidator
+from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
 
-from Products.validation.interfaces.IValidator import IValidator
-from Products.PloneServicesCenter import PSCMessageFactory as _
+_ = MessageFactory('ploneservicescenter')
 
 
 class IndustriesValidator:

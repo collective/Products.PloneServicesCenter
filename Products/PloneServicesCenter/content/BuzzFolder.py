@@ -1,9 +1,11 @@
-from zope.interface import implements
+# -*- coding: utf-8 -*-
 
 from Products.Archetypes import atapi
 
 from Products.PloneServicesCenter.content import ServicesFolder
 from Products.PloneServicesCenter.interfaces import IBuzzFolder
+
+from zope.interface import implements
 
 
 class BuzzFolder(ServicesFolder.BaseServicesFolder):

@@ -40,7 +40,7 @@
 <dl tal:define="listing_url python:here.getParentNode().absolute_url()">
   <tal:provider condition="here/canSeeProvider">
     <dt i18n:translate="label_psc_provided">Provided by</dt>
-    <dd><a tal:content="here/getProvider" 
+    <dd><a tal:content="here/getProvider"
            tal:attributes="href python: here.getProvider().absolute_url()"/></dd>
   </tal:provider>
   <tal:industry condition="here/getIndustry">

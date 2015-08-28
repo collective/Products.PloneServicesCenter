@@ -13,4 +13,3 @@ try:
     request.response.redirect(country)
 except:
     pass
- 

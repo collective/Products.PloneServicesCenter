@@ -16,7 +16,6 @@
       <ul  tal:repeat="country countries">
         <li><a href="#" tal:attributes="href string:in/$country" tal:content="python:countries[country][1]">country</a></li>
       </ul>
-      
 
     </div>
 

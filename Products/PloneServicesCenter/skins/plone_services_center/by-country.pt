@@ -30,15 +30,15 @@
 
       <p class="documentDescription" i18n:translate="label_country_descr">The following listing shows Plone providers around the world.</p>
 
-      <form name="testForm" action="test" 
+      <form name="testForm" action="test"
             tal:attributes="action string:${portal_url}/filterByCountry"
-            style="white-space:nowrap"> 
+            style="white-space:nowrap">
 
         <div style="float:right; width : 17em; text-align: right;">
-            <select name="country:list">  
-              <option tal:attributes="selected not: country; value here_url" 
+            <select name="country:list">
+              <option tal:attributes="selected not: country; value here_url"
                       i18n:translate="label_country_www">Worldwide</option>
-              
+
               <tal:loop tal:repeat="c_country all_countries">
                 <option tal:attributes="selected python: c_country[0] == country;
                                         value python:here_url + '/' + c_country[0]"
@@ -62,7 +62,7 @@
         <span tal:condition="not: country">
           in
           <strong>
-            <span tal:replace="python:len(all_countries)" 
+            <span tal:replace="python:len(all_countries)"
                   i18n:name="label_providers_countries" /> countries.
           </strong>
         </span>
@@ -75,13 +75,13 @@
           <div class="listing-provider"
                tal:condition="provider/isPremium"
                tal:attributes="class pv/getCssClasses">
-            
+
             <div class="listing-title">
             <table class="listing-title-table">
-              <tr> 
+              <tr>
               <td>
               <p><a tal:attributes="href provider/getURL"
-                    tal:content="provider/Title"> 
+                    tal:content="provider/Title">
                 <tal:comment replace="nothing">Site title</tal:comment>
               </a></p>
               </td>
@@ -92,7 +92,7 @@
              </div> <!-- listing title-->
 
 
-            <div class="provider-body">            
+            <div class="provider-body">
             <a tal:attributes="href provider/getURL"
                tal:condition="pv/getLogo"
                class="listing-provider-image-link">
@@ -113,21 +113,19 @@
               </span>
             </div> <!-- second infos-->
             </div> <!-- provider body-->
-          
+
           </div> <!-- listing-provider -->
-        
-        
 
           <div class="listing-provider"
                tal:attributes="class pv/getCssClasses"
                tal:condition="not:provider/isPremium">
-            
+
             <div class="listing-title">
             <table class="listing-title-table">
-              <tr> 
+              <tr>
               <td>
               <p><a tal:attributes="href provider/getURL"
-                 tal:content="provider/Title"> 
+                 tal:content="provider/Title">
                 <tal:comment replace="nothing">Site title</tal:comment>
               </a></p>
               </td>
@@ -138,7 +136,7 @@
              </div> <!-- listing title -->
 
 
-            <div class="provider-body">            
+            <div class="provider-body">
             <a tal:attributes="href provider/getURL"
                tal:condition="pv/getLogo"
                class="listing-provider-image-link">
@@ -164,12 +162,11 @@
             </div> <!-- second infos-->
             </div> <!-- provider-body -->
           </div> <!-- listing provider -->
-          
-        
+
         </div>
-        
+
         </div>
-      
+
       <div metal:use-macro="here/batch_macros/macros/navigation" />
     </div>
 

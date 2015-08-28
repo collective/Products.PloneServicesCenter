@@ -12,7 +12,7 @@
 
   <object name="plone_services_center_styles" meta_type="Filesystem Directory View"
           directory="Products.PloneServicesCenter:skins/plone_services_center_styles"/>
- 
+
   <skin-path name="*">
     <layer name="plone_services_center" insert-after="custom"/>
     <layer name="plone_services_center_images" insert-after="custom"/>

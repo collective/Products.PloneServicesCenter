@@ -1,7 +1,8 @@
-import unittest2 as unittest
-import doctest
+# -*- coding: utf-8 -*-
 
 from Products.PloneServicesCenter import testing
+import doctest
+import unittest2 as unittest
 
 optionflags = (doctest.NORMALIZE_WHITESPACE |
                doctest.ELLIPSIS |

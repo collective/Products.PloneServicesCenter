@@ -1,9 +1,11 @@
-from plone.testing import z2
-from plone.app import testing
+# -*- coding: utf-8 -*-
 
 from Acquisition import aq_parent
 
 from Products.CMFCore.utils import getToolByName
+
+from plone.app import testing
+from plone.testing import z2
 
 
 class ServicesFixture(testing.PloneSandboxLayer):
@@ -33,4 +35,4 @@ class ServicesFixture(testing.PloneSandboxLayer):
 
 SERVICES_FIXTURE = ServicesFixture()
 SERVICES_FUNCTIONAL_TESTING = testing.FunctionalTesting(
-    bases=(SERVICES_FIXTURE,), name="Services:Functional")
+    bases=(SERVICES_FIXTURE,), name='Services:Functional')

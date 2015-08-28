@@ -12,7 +12,7 @@
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        <a href="#" 
+        <a href="#"
             tal:attributes="href string:${portal_url}/recently_modified"
             i18n:translate="box_recent_changes">Recent Changes</a>
         <span class="portletTopRight"></span>

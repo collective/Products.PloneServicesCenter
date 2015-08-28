@@ -25,7 +25,7 @@ Arguments: contact_email, contact_name
      tal:content="python: contact_name or contact_email"/>
   <span tal:condition="python: contact_name and not contact_email"
         tal:replace="contact_name"/>
-  <span tal:condition="python: not (contact_name or contact_email)" 
+  <span tal:condition="python: not (contact_name or contact_email)"
         i18n:translate="label_psc_macros_notavailable">not available</span>
 </tal:display-contact>
 
@@ -70,11 +70,11 @@ Context: anything below a PloneServicesFolder
       <select name="countries:list" multiple="multiple" size="5">
         <option tal:attributes="selected python: '' in countries" value="" i18n:translate="label_pscmacros_filter_form_all">[ All ]</option>
         <tal:loop tal:repeat="country here/getSortedCountryPairs">
-	  <option
-	      tal:attributes="selected python: country['id'] in countries;
-			      value country/id"
-	      tal:content="country/name"/>
-	</tal:loop>
+          <option
+              tal:attributes="selected python: country['id'] in countries;
+                  value country/id"
+              tal:content="country/name"/>
+        </tal:loop>
       </select>
     </p>
     <p style="text-align: right"><input type="submit" value="Filter" i18n:attributes="value label_search;" /></p>

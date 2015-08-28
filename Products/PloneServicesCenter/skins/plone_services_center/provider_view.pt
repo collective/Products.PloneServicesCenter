@@ -50,11 +50,11 @@
     </tr>
     <tr>
         <th i18n:translate="label_provider_homepage">Home page</th>
-        <td> 
-            <a href="" 
+        <td>
+            <a href=""
                target="_blank"
                class="link-plain"
-               tal:attributes="href here/getUrl" 
+               tal:attributes="href here/getUrl"
                tal:content="here/Title"></a>
         </td>
     </tr>
@@ -73,7 +73,7 @@
     <tr tal:condition="here/isSponsor">
         <th i18n:translate="label_psc_size">Firm Size</th>
         <td tal:define="size here/getCompanySize">
-            <tal:display-size 
+            <tal:display-size
              metal:use-macro="here/psc_macros/macros/display-size" />
         </td>
     </tr>
@@ -83,11 +83,10 @@
         <th i18n:translate="label_psc_contact">Contact</th>
         <td tal:define="contact_email here/getContactEmail;
                         contact_name here/getContactName;">
-            <tal:display-contact 
+            <tal:display-contact
              metal:use-macro="here/psc_macros/macros/display-contact" />
         </td>
     </tr>
-    
 
 </table>
 
@@ -149,7 +148,7 @@
   No sites found, add yours in the <a href="../sites">Sites section</a>.
 </p>
 <p i18n:translate="label_provider_note">
-  Note: 
+  Note:
 </p>
 
   <ul i18n:translate="label_provider_note_msg">
@@ -160,11 +159,11 @@
 </tal:nosites>
 
 <p class="discreet" i18n:translate="">
-    Disclaimer: 
+    Disclaimer:
     While the Plone Foundation performs a rudimentary background check on the
     content contributed to this site to make sure it is legitimate,
     it does not constitute any kind of endorsement nor responsibility for its
-    accuracy. Use sound judgement when engaging in any business transaction, 
+    accuracy. Use sound judgement when engaging in any business transaction,
     as you would anywhere else.
 </p>
 
@@ -172,4 +171,3 @@
 
 </body>
 </html>
-

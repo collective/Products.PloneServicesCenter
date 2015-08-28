@@ -11,16 +11,16 @@
 <body>
 
   <metal:define define-macro="edit">
-    
+
     <metal:use use-macro="field_macro|context/widgets/field/macros/edit">
-      
+
       <metal:fill fill-slot="widget_body"
                   tal:define="vocab python:field.Vocabulary(context);
                               vlen python:len(vocab);
                               selectionview context/@@at_selection_widget;
                               selection python:selectionview.getSelected(vocab, value);
                               format python:widget.format">
-        
+
         <select name="country" id="country"
                 tal:attributes="name field/getName;
                                 id field/getName;">

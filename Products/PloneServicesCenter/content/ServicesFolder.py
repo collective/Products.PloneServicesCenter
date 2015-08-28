@@ -1,13 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from Products.Archetypes import atapi
 from Products.CMFCore.utils import getToolByName
-from sets import Set
 
 from Products.PloneServicesCenter.content import country
+from sets import Set
 
 
 servicesFolderSchema = atapi.BaseFolderSchema + atapi.Schema((
 
-    ))
+))
 
 
 class BaseServicesFolder(atapi.BaseFolder):
@@ -43,14 +45,14 @@ class BaseServicesFolder(atapi.BaseFolder):
         For a section object (like a BuzzFolder), return the
         industries actually used in that section.
         """
-        return self._getSomethingInSection("getIndustry", section_object)
+        return self._getSomethingInSection('getIndustry', section_object)
 
     def getCountriesInSection(self, section_object):
         """
         For a section object (like a BuzzFolder), return the
         countries actually used in that section.
         """
-        return self._getSomethingInSection("getCountry", section_object)
+        return self._getSomethingInSection('getCountry', section_object)
 
     def getIndustriesInThisSection(self):
         return self.getCountriesInSection(self)
@@ -92,18 +94,18 @@ class BaseServicesFolder(atapi.BaseFolder):
         """
         query = {}
 
-        ## Add countries/industries, filtering out empty ones
+        #  Add countries/industries, filtering out empty ones
         if countries:
-            countries = [c for c in countries if c ]
+            countries = [c for c in countries if c]
             if countries:
-                query["getCountry"] = countries
+                query['getCountry'] = countries
 
         if industries:
-            industries = [i for i in industries if i ]
+            industries = [i for i in industries if i]
             if industries:
-                query["getIndustry"] = industries
+                query['getIndustry'] = industries
 
-        ## Filter out empty/None arguments
+        #  Filter out empty/None arguments
         for key, value in kwargs.items():
             if value:
                 query[key] = value
@@ -115,7 +117,7 @@ class BaseServicesFolder(atapi.BaseFolder):
         """
         Return brains of SiteUsingPlone, sorted alphabetically
         """
-        return self._getFilteredObjects(meta_type="SiteUsingPlone",
+        return self._getFilteredObjects(meta_type='SiteUsingPlone',
                                         sort_on='getSortExpression',
                                         **kwargs)
 
@@ -123,7 +125,7 @@ class BaseServicesFolder(atapi.BaseFolder):
         """
         Return brains of Buzz, sorted alphabetically
         """
-        return self._getFilteredObjects(meta_type="Buzz",
+        return self._getFilteredObjects(meta_type='Buzz',
                                         sort_on='effective',
                                         sort_order='reverse',
                                         **kwargs)
@@ -132,7 +134,7 @@ class BaseServicesFolder(atapi.BaseFolder):
         """
         Return brains of CaseStudy, sorted alphabetically
         """
-        return self._getFilteredObjects(meta_type="CaseStudy",
+        return self._getFilteredObjects(meta_type='CaseStudy',
                                         sort_on='getSortExpression',
                                         **kwargs)
 
@@ -140,7 +142,7 @@ class BaseServicesFolder(atapi.BaseFolder):
         """
         Get filtered providers
         """
-        return self._getFilteredObjects(meta_type="Provider",
+        return self._getFilteredObjects(meta_type='Provider',
                                         sort_on='getSortExpression',
                                         **kwargs)
 
@@ -148,9 +150,9 @@ class BaseServicesFolder(atapi.BaseFolder):
         """
         Get the industry vocabulary
         """
-        props = getToolByName(self, "portal_properties")
+        props = getToolByName(self, 'portal_properties')
         industries = list(
-            props.psc_properties.getProperty("industryVocabulary"))
+            props.psc_properties.getProperty('industryVocabulary'))
         industries.sort()
         return industries
 
@@ -163,17 +165,18 @@ class BaseServicesFolder(atapi.BaseFolder):
         if callable(industries):
             # So we can handle both brains and real objects
             industries = industries()
-        links = ['<a href="%s?industries:list=%s">%s</a>' %
-                 (base_url, industry, industry) for industry in industries]
-        return ", ".join(links)
+        # links = ['<a href="%s?industries:list=%s">%s</a>' %
+        #          (base_url, industry, industry) for industry in industries]
+        links = ['<a href="{0}?industries:list={1}">{2}</a>'.format(base_url, industry, industry) for industry in industries]
+        return ', '.join(links)
 
     def getSortedCountryPairs(self):
         """
         This method returns a list of sorted countries, with id and names
         """
         codes = self.getCountriesInThisSection()
-        countries = [{"id": code,
-                      "name": country.vocab.getValue(code, code) }
+        countries = [{'id': code,
+                      'name': country.vocab.getValue(code, code)}
                      for code in codes]
-        countries.sort(lambda a, b: cmp(a["name"], b["name"]))
+        countries.sort(lambda a, b: cmp(a['name'], b['name']))
         return countries

@@ -1,8 +1,10 @@
-from Products.CMFCore.permissions import AddPortalContent
+# -*- coding: utf-8 -*-
+
 from Globals import package_home
+from Products.CMFCore.permissions import AddPortalContent
 
 ADD_CONTENT_PERMISSION = AddPortalContent
-PROJECTNAME = "PloneServicesCenter"
+PROJECTNAME = 'PloneServicesCenter'
 SKINS_DIR = 'skins'
 
 GLOBALS = globals()

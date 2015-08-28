@@ -1,5 +1,5 @@
 <metal:define use-macro="here/global_defines/macros/defines"></metal:define>
-<metal:define 
+<metal:define
     i18n:domain="ploneservicescenter"
     tal:define="charset site_properties/default_charset | string:utf-8;
                 lt string:&lt;;gt string:&gt;;
@@ -29,6 +29,6 @@ MIME-Version: 1.0
 
     Regards,
 </span>
--- 
+--
 <span tal:replace="portal/title"/>
 </metal:define>

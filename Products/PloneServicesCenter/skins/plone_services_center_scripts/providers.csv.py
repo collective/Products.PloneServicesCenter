@@ -14,14 +14,14 @@ context.REQUEST.RESPONSE.setHeader('Content-Type', 'text/csv')
 from Products.CMFCore.utils import getToolByName
 workflow_tool = getToolByName(context, 'portal_workflow')
 
-# header row
+#  header row
 print '"Provider name","Provider contact name","Provider contact email","Sponsorship","Premium sponsorship","Firm size","Workflow state"'
 
 for provider_brain in providers:
     provider = provider_brain.getObject()
     wfstate = workflow_tool.getInfoFor(provider, 'review_state', '')
 
-    print '"%s","%s","%s","%s","%s","%s","%s",' % (provider.pretty_title_or_id(), provider.getContactName(), provider.getContactEmail(), provider.isSponsor(), provider.isPremium(), provider.getEmployees(), wfstate )
-    
+    #  print '"%s","%s","%s","%s","%s","%s","%s",' % (provider.pretty_title_or_id(), provider.getContactName(), provider.getContactEmail(), provider.isSponsor(), provider.isPremium(), provider.getEmployees(), wfstate )
+    print '"{0}","{1}","{2}","{3}","{4}","{5}","{6}",'.format(provider.pretty_title_or_id(), provider.getContactName(), provider.getContactEmail(), provider.isSponsor(), provider.isPremium(), provider.getEmployees(), wfstate )
+
 return printed
- 

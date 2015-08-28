@@ -1,5 +1,7 @@
-from Products.Five import BrowserView
+# -*- coding: utf-8 -*-
+
 from Products.CMFCore.utils import getToolByName
+from Products.Five import BrowserView
 
 
 class DownloadCSV(BrowserView):
@@ -29,12 +31,13 @@ class DownloadCSV(BrowserView):
             provider = provider_brain.getObject()
             wfstate = workflow_tool.getInfoFor(provider, 'review_state', '')
 
-            row = '"%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (
+            # row = '"%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (
+            row = '"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}"\n'.format(
                 provider.pretty_title_or_id(),
                 provider.getContactName(), provider.getContactEmail(),
                 provider.isSponsor(), provider.isPremium(),
                 provider.getEmployees(), provider.getCompanySize(),
-                provider.getAnnualRevenues(), wfstate )
+                provider.getAnnualRevenues(), wfstate)
             self.write(row)
 
         return self.content

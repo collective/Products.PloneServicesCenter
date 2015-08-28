@@ -7,8 +7,9 @@
 ##bind subpath=traverse_subpath
 ##parameters=
 
+
 def removeScreenshot(obj, path):
-    obj.setScreenshot("DELETE_IMAGE")
+    obj.setScreenshot('DELETE_IMAGE')
 
 context.ZopeFindAndApply(
     context, obj_metatypes=('SiteUsingPlone', 'CaseStudy'),

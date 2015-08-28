@@ -1,18 +1,19 @@
-from zope.interface import implements
+# -*- coding: utf-8 -*-
 
 from Products.Archetypes import atapi
 
 from Products.PloneServicesCenter import PSCMessageFactory as _
-from Products.PloneServicesCenter.interfaces import IBuzz
 from Products.PloneServicesCenter.content import Services
-
+from Products.PloneServicesCenter.interfaces import IBuzz
+from zope.interface import implements
 
 schema = Services.servicesSchema + atapi.Schema((
 
-    atapi.TextField('body',
+    atapi.TextField(
+        'body',
         widget=atapi.RichWidget(
-            label=_(u"label_psc_detailed_info", default=u"Detailed information"),
-            description=_(u"help_buzz_body", default=u"Enter the details description about this buzz."),
+            label=_(u'label_psc_detailed_info', default=u'Detailed information'),
+            description=_(u'help_buzz_body', default=u'Enter the details description about this buzz.'),
             i18n_domain='ploneservicescenter',
         ),
         allowable_content_types=('text/html',),
@@ -22,10 +23,11 @@ schema = Services.servicesSchema + atapi.Schema((
         searchable=1,
     ),
 
-    atapi.ImageField('logo',
+    atapi.ImageField(
+        'logo',
         widget=atapi.ImageWidget(
-            label=_(u"label_general_logo", default=u"Logo"),
-            description=_(u"help_buzz_logo", default=u"Add a logo for the case study (normally the customer logo). Max 150x75 pixels (will be resized if bigger)."),
+            label=_(u'label_general_logo', default=u'Logo'),
+            description=_(u'help_buzz_logo', default=u'Add a logo for the case study (normally the customer logo). Max 150x75 pixels (will be resized if bigger).'),
             i18n_domain='ploneservicescenter',
         ),
         sizes={'large': (768, 768),
@@ -35,32 +37,33 @@ schema = Services.servicesSchema + atapi.Schema((
                'thumb': (128, 128),
                'tile': (64, 64),
                'icon': (32, 32),
-               'listing': (16, 16),
-              },
+               'listing': (16, 16), },
     ),
 
-    atapi.ReferenceField('provider',
+    atapi.ReferenceField(
+        'provider',
         widget=atapi.ReferenceWidget(
-            label=_(u"label_psc_provider_cat", default=u"Provider"),
-            description=_(u"help_buzz_provider", default=u"Select a provider from the below listing for the media coverage."),
+            label=_(u'label_psc_provider_cat', default=u'Provider'),
+            description=_(u'help_buzz_provider', default=u'Select a provider from the below listing for the media coverage.'),
             checkbox_bound=0,
             i18n_domain='ploneservicescenter',
         ),
         relationship='providerToBuzz',
         allowed_types=('Provider',),
         vocabulary_display_path_bound=-1,
-        vocabulary="getProvidersReferences",
+        vocabulary='getProvidersReferences',
     ),
 
 ))
+
 
 class Buzz(Services.BaseServicesContent):
     """A link to media coverage of Plone."""
 
     implements(IBuzz)
     schema = schema
-    archetype_name = "Media Coverage"
-    typeDescription = "A link to media coverage of Plone."
-    typeDescMsgId = "help_buzz_archetype"
+    archetype_name = 'Media Coverage'
+    typeDescription = 'A link to media coverage of Plone.'
+    typeDescMsgId = 'help_buzz_archetype'
 
 atapi.registerType(Buzz, 'PloneServicesCenter')

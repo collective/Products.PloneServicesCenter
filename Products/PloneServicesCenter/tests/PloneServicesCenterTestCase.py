@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+from Products.PloneTestCase import PloneTestCase
 from Testing import ZopeTestCase
 
 # Make the boring stuff load quietly
@@ -19,8 +22,6 @@ ZopeTestCase.installProduct('Archetypes')
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
 ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
 ZopeTestCase.installProduct('PloneServicesCenter')
-
-from Products.PloneTestCase import PloneTestCase
 
 PRODUCTS = ['Archetypes', 'PloneServicesCenter']
 

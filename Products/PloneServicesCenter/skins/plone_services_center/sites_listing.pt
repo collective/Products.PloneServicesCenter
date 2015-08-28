@@ -8,7 +8,7 @@
   <body>
     <div metal:fill-slot="main"
          tal:define="countries_dict python:modules['Products.PloneServicesCenter.content.country'].vocab;
-                     countries python:request.get('countries',[]); 
+                     countries python:request.get('countries',[]);
                      industries_vocab context/getIndustryVocabulary;
                      industries python:request.get('industries',[]);
                      sites python: here.getSitesUsingPlone(countries=countries, industries=industries);
@@ -46,7 +46,7 @@
       </tal:if>
 
       <div tal:condition="sites">
-        
+
         <div tal:repeat="brain batch">
 
           <div tal:define="base_url string:${here/absolute_url}/${template/getId};
@@ -103,7 +103,7 @@
                 <tal:comment replace="nothing">Site title</tal:comment>
               </a>
             </h3>
-            
+
             <a tal:attributes="href brain/getURL"
                class="listing-site-image-link">
               <img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwxmax=200&stwymax=150&stwaccesskeyid=21806ba9db284d3&stwurl=http://plone.org"
@@ -111,7 +111,7 @@
                                    title brain/Title;
                                    alt brain/Title" />
             </a>
-            
+
             <p tal:content="brain/Description"></p>
             <div class="second-infos"
                  tal:define="site brain/getObject">
@@ -133,7 +133,6 @@
               </tal:if>
             </div>
           </div>
-          
 
         </div>
         </div>
