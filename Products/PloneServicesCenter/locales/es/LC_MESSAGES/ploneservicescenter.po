@@ -1,17 +1,18 @@
 # translation of PloneServicesCenter.po to Spanish
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2008, 2029, 2010, 2011.
-# 
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2008, 2029, 2010, 2011, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneServicesCenter 0.2.7\n"
 "POT-Creation-Date: 2011-06-14 14:31+0000\n"
-"PO-Revision-Date: 2011-06-12 09:38-0400\n"
+"PO-Revision-Date: 2014-07-01 05:12-0430\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "Language-Code: es\n"
 "Language-Name: Spanish\n"
 "Preferred-Encodings: utf-8 latin1\n"
@@ -273,6 +274,11 @@ msgstr ""
 #: ../skins/plone_services_center/provider_view.pt:162
 msgid "Disclaimer: While the Plone Foundation performs a rudimentary background check on the content contributed to this site to make sure it is legitimate, it does not constitute any kind of endorsement nor responsibility for its accuracy. Use sound judgement when engaging in any business transaction, as you would anywhere else."
 msgstr ""
+"Renuncia: Si bien la Fundación Plone realiza una verificación de "
+"antecedentes rudimentario sobre el contenido contribuido a este sitio para "
+"asegurarse de que es legítimo, que no constituye ningún tipo de garantía ni "
+"responsabilidad por su exactitud. Use buen juicio al participar en cualquier "
+"transacción comercial, como lo haría con cualquier otro sitio."
 
 #: ../content/country.py:240
 msgid "Djibouti"
@@ -1443,7 +1449,10 @@ msgstr "Logotipo"
 #. Default: "<strong>No related items were found for these search terms.</strong> Please broaden your search and try again."
 #: ../skins/plone_services_center/psc_macros.pt:9
 msgid "label_psc_macros_filter_form"
-msgstr "    <strong>No se encontraron elementos relacionados para estos términos de búsqueda.</strong>    Por favor, ampliar su búsqueda y vuelva a intentar de nuevo."
+msgstr ""
+"    <strong>No se encontraron elementos relacionados para estos términos de "
+"búsqueda.</strong>    Por favor, ampliar su búsqueda y vuelva a intentar de "
+"nuevo."
 
 #. Default: "not available"
 #: ../skins/plone_services_center/psc_macros.pt:28
@@ -1547,12 +1556,16 @@ msgstr "País:"
 #. Default: "Currently listing <strong>${label_siteslist_counts} sites</strong> powered by Plone."
 #: ../skins/plone_services_center/sites_listing.pt:38
 msgid "label_siteslist_currentsites"
-msgstr "Listado actual de <strong>${label_siteslist_counts} sitios Web</strong> basado en Plone."
+msgstr ""
+"Listado actual de <strong>${label_siteslist_counts} sitios Web</strong> "
+"basado en Plone."
 
 #. Default: "You can customize the listing by selecting countries and industries on the right."
 #: ../skins/plone_services_center/sites_listing.pt:34
 msgid "label_siteslist_custom"
-msgstr "Usted puede personalizar la lista seleccionando países y industrias a la derecha."
+msgstr ""
+"Usted puede personalizar la lista seleccionando países y industrias a la "
+"derecha."
 
 #. Default: "Industry:"
 #: ../skins/plone_services_center/sites_listing.pt:125
@@ -1589,4 +1602,3 @@ msgstr "Nada"
 #: ../content/Provider.py:137
 msgid "small"
 msgstr "Pequeña"
-
