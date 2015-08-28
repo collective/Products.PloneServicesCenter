@@ -5,6 +5,9 @@ Changelog
 0.2.8 - (unreleased)
 ---------------------
 
+* Updated Spanish translation
+  [macagua]
+
 * Updated classifiers list for package
   [macagua]
 
