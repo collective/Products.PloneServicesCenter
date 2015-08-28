@@ -11,6 +11,8 @@
 
     <i18n:registerTranslations directory="locales" />
 
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
     <include package=".browser" />
     <include file="profiles.zcml" />
 
