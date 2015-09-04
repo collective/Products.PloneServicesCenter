@@ -2,7 +2,7 @@ import os
 from setuptools import setup, find_packages
 
 version = '0.2.8'
-long_description = open("README.txt").read() + '\n' + \
+long_description = open("README.rst").read() + '\n' + \
                    open(os.path.join("docs", "HISTORY.txt")).read()
 tests_require = ['plone.app.testing']
 
