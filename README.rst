@@ -16,6 +16,30 @@ Requires
 * Plone 4+
 * ArchAddOn, https://github.com/collective/Products.ArchAddOn
 
+How to install
+==============
+
+This Project should be installed using the provided buildout.
+
+Badges
+------
+
+.. image:: https://pypip.in/v/Products.PloneServicesCenter/badge.png
+    :target: https://crate.io/packages/Products.PloneServicesCenter/
+    :alt: Latest PyPI version
+
+.. image:: https://pypip.in/d/Products.PloneServicesCenter/badge.png
+    :target: https://crate.io/packages/Products.PloneServicesCenter/
+    :alt: Number of PyPI downloads
+
+.. image:: https://travis-ci.org/collective/Products.PloneServicesCenter.svg?branch=master
+    :alt: Travis CI badge
+    :target: https://travis-ci.org/collective/Products.PloneServicesCenter
+
+.. image:: https://coveralls.io/repos/collective/Products.PloneServicesCenter/badge.svg?branch=master&service=github
+    :alt: Coveralls badge
+    :target: https://coveralls.io/github/collective/Products.PloneServicesCenter?branch=master
+
 Recommended
 -----------
 
